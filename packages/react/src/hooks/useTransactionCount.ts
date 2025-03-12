@@ -4,15 +4,15 @@ import type {
   Config,
   GetTransactionCountErrorType,
   ResolvedRegister,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
-import type { GetTransactionCountQueryFnData } from '@/lib/connect/core/exports/query'
+} from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
+import type { GetTransactionCountQueryFnData } from '@wagmi/core/query'
 import {
   type GetTransactionCountData,
   type GetTransactionCountOptions,
   type GetTransactionCountQueryKey,
   getTransactionCountQueryOptions,
-} from '@/lib/connect/core/exports/query'
+} from '@wagmi/core/query'
 
 import { useInvalidateOnBlock } from '@/lib/connect/react/hooks/useInvalidateOnBlock'
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'

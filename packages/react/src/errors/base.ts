@@ -1,4 +1,4 @@
-import { BaseError as CoreError } from '@/lib/connect/core/exports'
+import { BaseError as CoreError } from '@wagmi/core'
 
 import { getVersion } from '../utils/getVersion.js'
 

@@ -2,13 +2,13 @@
 
 import {
   type Config,
-  getPublicClient,
   type GetPublicClientParameters,
   type GetPublicClientReturnType,
   type ResolvedRegister,
+  getPublicClient,
   watchPublicClient,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
 import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector'
 
 import type { ConfigParameter } from '../types/properties.js'

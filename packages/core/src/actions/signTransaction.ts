@@ -9,7 +9,6 @@ import type {
 } from 'vimina'
 import { signTransaction as viem_signTransaction } from 'vimina/actions'
 
-import { getAccount } from '@/lib/connect/core/actions/getAccount'
 import type { UInt32 } from 'o1js/dist/web/bindings/mina-transaction/transaction-leaves-json'
 import type { Config } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
@@ -20,6 +19,7 @@ import type {
 } from '../types/properties.js'
 import type { Compute } from '../types/utils.js'
 import { getAction } from '../utils/getAction.js'
+import { getAccount } from './getAccount.js'
 import {
   type GetConnectorClientErrorType,
   getConnectorClient,

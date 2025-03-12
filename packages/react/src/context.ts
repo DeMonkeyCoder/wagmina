@@ -1,6 +1,6 @@
 'use client'
 
-import type { ResolvedRegister, State } from '@/lib/connect/core/exports'
+import type { ResolvedRegister, State } from '@wagmi/core'
 import { createContext, createElement } from 'react'
 import { Hydrate } from './hydrate.js'
 

@@ -6,9 +6,9 @@ import {
   fetchAccount as viem_fetchAccount,
 } from 'vimina/actions'
 
-import type { SelectChains } from '@/lib/connect/core/types/chain'
-import type { NetworkIdParameter } from '@/lib/connect/core/types/properties'
 import type { Config } from '../createConfig.js'
+import type { SelectChains } from '../types/chain.js'
+import type { NetworkIdParameter } from '../types/properties.js'
 import type { Unit } from '../types/unit.js'
 import type { Compute } from '../types/utils.js'
 import { getAction } from '../utils/getAction.js'

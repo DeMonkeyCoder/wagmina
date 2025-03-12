@@ -5,15 +5,15 @@ import type {
   Config,
   ResolvedRegister,
   SignTransactionErrorType,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
 import {
   type SignDelegationTransactionData,
   type SignDelegationTransactionMutate,
   type SignDelegationTransactionMutateAsync,
-  signDelegationTransactionMutationOptions,
   type SignDelegationTransactionVariables,
-} from '@/lib/connect/core/exports/query'
+  signDelegationTransactionMutationOptions,
+} from '@wagmi/core/query'
 
 import type { ConfigParameter } from '../types/properties.js'
 import type {

@@ -5,8 +5,8 @@ import {
   type GetChainsReturnType,
   type ResolvedRegister,
   getChains,
-} from '@/lib/connect/core/exports'
-import { watchChains } from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core'
+import { watchChains } from '@wagmi/core/internal'
 import { useSyncExternalStore } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'

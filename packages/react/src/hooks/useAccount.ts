@@ -6,7 +6,7 @@ import {
   type ResolvedRegister,
   getAccount,
   watchAccount,
-} from '@/lib/connect/core/exports'
+} from '@wagmi/core'
 
 import type { ConfigParameter } from '../types/properties.js'
 import { useConfig } from './useConfig.js'

@@ -5,27 +5,27 @@ import type {
   Config,
   GetBlockHashErrorType,
   ResolvedRegister,
-} from '@/lib/connect/core/exports'
+} from '@wagmi/core'
 import type {
   Compute,
   UnionCompute,
   UnionStrictOmit,
-} from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core/internal'
 import {
   type GetBlockHashData,
   type GetBlockHashOptions,
   type GetBlockHashQueryFnData,
   type GetBlockHashQueryKey,
   getBlockHashQueryOptions,
-} from '@/lib/connect/core/exports/query'
+} from '@wagmi/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
-import { useQuery, type UseQueryReturnType } from '../utils/query.js'
-import { useNetworkId } from './useNetworkId.js'
+import { type UseQueryReturnType, useQuery } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
+import { useNetworkId } from './useNetworkId.js'
 import {
-  useWatchBlockHash,
   type UseWatchBlockHashParameters,
+  useWatchBlockHash,
 } from './useWatchBlockHash.js'
 
 export type UseBlockHashParameters<

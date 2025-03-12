@@ -1,18 +1,14 @@
 'use client'
 
-import type {
-  Config,
-  GetBalanceErrorType,
-  ResolvedRegister,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
-import type { GetBalanceQueryFnData } from '@/lib/connect/core/exports/query'
+import type { Config, GetBalanceErrorType, ResolvedRegister } from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
+import type { GetBalanceQueryFnData } from '@wagmi/core/query'
 import {
   type GetBalanceData,
   type GetBalanceOptions,
   type GetBalanceQueryKey,
   getBalanceQueryOptions,
-} from '@/lib/connect/core/exports/query'
+} from '@wagmi/core/query'
 
 import { useInvalidateOnBlock } from '@/lib/connect/react/hooks/useInvalidateOnBlock'
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'

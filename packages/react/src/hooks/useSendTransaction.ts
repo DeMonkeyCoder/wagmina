@@ -1,19 +1,19 @@
 'use client'
 
+import { useMutation } from '@tanstack/react-query'
 import type {
   Config,
   ResolvedRegister,
   SendTransactionErrorType,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
 import {
   type SendTransactionData,
   type SendTransactionMutate,
   type SendTransactionMutateAsync,
-  sendTransactionMutationOptions,
   type SendTransactionVariables,
-} from '@/lib/connect/core/exports/query'
-import { useMutation } from '@tanstack/react-query'
+  sendTransactionMutationOptions,
+} from '@wagmi/core/query'
 
 import type { ConfigParameter } from '../types/properties.js'
 import type {

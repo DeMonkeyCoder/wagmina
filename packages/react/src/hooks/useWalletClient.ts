@@ -8,15 +8,15 @@ import type {
   Config,
   GetWalletClientErrorType,
   ResolvedRegister,
-} from '@/lib/connect/core/exports'
-import type { Compute, Omit } from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core'
+import type { Compute, Omit } from '@wagmi/core/internal'
 import {
   type GetWalletClientData,
   type GetWalletClientOptions,
   type GetWalletClientQueryFnData,
   type GetWalletClientQueryKey,
   getWalletClientQueryOptions,
-} from '@/lib/connect/core/exports/query'
+} from '@wagmi/core/query'
 import { useEffect, useRef } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'
@@ -26,8 +26,8 @@ import {
   useQuery,
 } from '../utils/query.js'
 import { useAccount } from './useAccount.js'
-import { useNetworkId } from './useNetworkId.js'
 import { useConfig } from './useConfig.js'
+import { useNetworkId } from './useNetworkId.js'
 
 export type UseWalletClientParameters<
   config extends Config = Config,

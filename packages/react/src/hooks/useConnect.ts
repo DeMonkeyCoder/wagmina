@@ -1,19 +1,15 @@
 'use client'
 
 import { useMutation } from '@tanstack/react-query'
-import type {
-  Config,
-  ConnectErrorType,
-  ResolvedRegister,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
+import type { Config, ConnectErrorType, ResolvedRegister } from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
 import {
   type ConnectData,
   type ConnectMutate,
   type ConnectMutateAsync,
   type ConnectVariables,
   connectMutationOptions,
-} from '@/lib/connect/core/exports/query'
+} from '@wagmi/core/query'
 import { useEffect } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'

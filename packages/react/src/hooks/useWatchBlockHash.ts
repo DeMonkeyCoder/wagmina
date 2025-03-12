@@ -3,18 +3,15 @@
 import {
   type Config,
   type ResolvedRegister,
-  watchBlockHash,
   type WatchBlockHashParameters,
-} from '@/lib/connect/core/exports'
-import type {
-  UnionCompute,
-  UnionExactPartial,
-} from '@/lib/connect/core/exports/internal'
+  watchBlockHash,
+} from '@wagmi/core'
+import type { UnionCompute, UnionExactPartial } from '@wagmi/core/internal'
 import { useEffect } from 'react'
 
 import type { ConfigParameter, EnabledParameter } from '../types/properties.js'
-import { useNetworkId } from './useNetworkId.js'
 import { useConfig } from './useConfig.js'
+import { useNetworkId } from './useNetworkId.js'
 
 export type UseWatchBlockHashParameters<
   config extends Config = Config,

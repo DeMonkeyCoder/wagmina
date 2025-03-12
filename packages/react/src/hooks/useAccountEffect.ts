@@ -1,10 +1,7 @@
 'use client'
 
-import {
-  type GetAccountReturnType,
-  watchAccount,
-} from '@/lib/connect/core/exports'
-import type { Compute } from '@/lib/connect/core/exports/internal'
+import { type GetAccountReturnType, watchAccount } from '@wagmi/core'
+import type { Compute } from '@wagmi/core/internal'
 import { useEffect } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'

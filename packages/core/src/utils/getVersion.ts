@@ -1,3 +1,3 @@
 import { version } from '../version.js'
 
-export const getVersion = () => `@/lib/connect/core/exports@${version}`
+export const getVersion = () => `@wagmi/core@${version}`

@@ -5,15 +5,15 @@ import type {
   Config,
   GetConnectorClientErrorType,
   ResolvedRegister,
-} from '@/lib/connect/core/exports'
-import type { Compute, Omit } from '@/lib/connect/core/exports/internal'
+} from '@wagmi/core'
+import type { Compute, Omit } from '@wagmi/core/internal'
 import {
   type GetConnectorClientData,
   type GetConnectorClientOptions,
   type GetConnectorClientQueryFnData,
   type GetConnectorClientQueryKey,
   getConnectorClientQueryOptions,
-} from '@/lib/connect/core/exports/query'
+} from '@wagmi/core/query'
 import { useEffect, useRef } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'
@@ -23,8 +23,8 @@ import {
   useQuery,
 } from '../utils/query.js'
 import { useAccount } from './useAccount.js'
-import { useNetworkId } from './useNetworkId.js'
 import { useConfig } from './useConfig.js'
+import { useNetworkId } from './useNetworkId.js'
 
 export type UseConnectorClientParameters<
   config extends Config = Config,
