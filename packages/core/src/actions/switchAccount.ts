@@ -1,11 +1,11 @@
 import type { Address } from 'vimina'
 
-import type { Config, Connector } from '../createConfig'
-import type { BaseError, ErrorType } from '../errors/base'
+import type { Config, Connector } from '../createConfig.js'
+import type { BaseError, ErrorType } from '../errors/base.js'
 import {
   ConnectorNotConnectedError,
   type ConnectorNotConnectedErrorType,
-} from '../errors/config'
+} from '../errors/config.js'
 
 export type SwitchAccountParameters = {
   connector: Connector

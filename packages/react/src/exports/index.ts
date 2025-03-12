@@ -7,18 +7,18 @@ export {
   type WagmiProviderProps,
   WagmiContext,
   WagmiProvider,
-} from '../context'
+} from '../context.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Errors
 ////////////////////////////////////////////////////////////////////////////////
 
-export { type BaseErrorType, BaseError } from '../errors/base'
+export { type BaseErrorType, BaseError } from '../errors/base.js'
 
 export {
   type WagmiProviderNotFoundErrorType,
   WagmiProviderNotFoundError,
-} from '../errors/context'
+} from '../errors/context.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hooks
@@ -28,150 +28,150 @@ export {
   type UseAccountParameters,
   type UseAccountReturnType,
   useAccount,
-} from '../hooks/useAccount'
+} from '../hooks/useAccount.js'
 
 export {
   type UseAccountEffectParameters,
   useAccountEffect,
-} from '../hooks/useAccountEffect'
+} from '../hooks/useAccountEffect.js'
 
 export {
   type UseBalanceParameters,
   type UseBalanceReturnType,
   useBalance,
-} from '../hooks/useBalance'
+} from '../hooks/useBalance.js'
 
 export {
   type UseBlockHashParameters,
   type UseBlockHashReturnType,
   useBlockHash,
-} from '../hooks/useBlockHash'
+} from '../hooks/useBlockHash.js'
 
 export {
   type UseFetchAccountParameters,
   type UseFetchAccountReturnType,
   useFetchAccount,
-} from '../hooks/useFetchAccount'
+} from '../hooks/useFetchAccount.js'
 
 export {
   type UseNetworkIdParameters,
   type UseNetworkIdReturnType,
   useNetworkId,
-} from '../hooks/useNetworkId'
+} from '../hooks/useNetworkId.js'
 
 export {
   type UseChainsParameters,
   type UseChainsReturnType,
   useChains,
-} from '../hooks/useChains'
+} from '../hooks/useChains.js'
 
 export {
   type UseClientParameters,
   type UseClientReturnType,
   useClient,
-} from '../hooks/useClient'
+} from '../hooks/useClient.js'
 
 export {
   type UseConfigParameters,
   type UseConfigReturnType,
   useConfig,
-} from '../hooks/useConfig'
+} from '../hooks/useConfig.js'
 
 export {
   type UseConnectParameters,
   type UseConnectReturnType,
   useConnect,
-} from '../hooks/useConnect'
+} from '../hooks/useConnect.js'
 
 export {
   type UseConnectionsParameters,
   type UseConnectionsReturnType,
   useConnections,
-} from '../hooks/useConnections'
+} from '../hooks/useConnections.js'
 
 export {
   type UseConnectorsParameters,
   type UseConnectorsReturnType,
   useConnectors,
-} from '../hooks/useConnectors'
+} from '../hooks/useConnectors.js'
 
 export {
   type UseConnectorClientParameters,
   type UseConnectorClientReturnType,
   useConnectorClient,
-} from '../hooks/useConnectorClient'
+} from '../hooks/useConnectorClient.js'
 
 export {
   type UseDisconnectParameters,
   type UseDisconnectReturnType,
   useDisconnect,
-} from '../hooks/useDisconnect'
+} from '../hooks/useDisconnect.js'
 
 export {
   type UsePublicClientParameters,
   type UsePublicClientReturnType,
   usePublicClient,
-} from '../hooks/usePublicClient'
+} from '../hooks/usePublicClient.js'
 
 export {
   type UseReconnectParameters,
   type UseReconnectReturnType,
   useReconnect,
-} from '../hooks/useReconnect'
+} from '../hooks/useReconnect.js'
 
 export {
   type UseSignDelegationTransactionParameters,
   type UseSignDelegationTransactionReturnType,
   useSignDelegationTransaction,
-} from '../hooks/useSignDelegationTransaction'
+} from '../hooks/useSignDelegationTransaction.js'
 
 export {
   type UseSignPaymentTransactionParameters,
   type UseSignPaymentTransactionReturnType,
   useSignPaymentTransaction,
-} from '../hooks/useSignPaymentTransaction'
+} from '../hooks/useSignPaymentTransaction.js'
 
 export {
   type UseSignZkappTransactionParameters,
   type UseSignZkappTransactionReturnType,
   useSignZkappTransaction,
-} from '../hooks/useSignZkappTransaction'
+} from '../hooks/useSignZkappTransaction.js'
 
 export {
   type UseSwitchAccountParameters,
   type UseSwitchAccountReturnType,
   useSwitchAccount,
-} from '../hooks/useSwitchAccount'
+} from '../hooks/useSwitchAccount.js'
 
 export {
   type UseSwitchChainParameters,
   type UseSwitchChainReturnType,
   useSwitchChain,
-} from '../hooks/useSwitchChain'
+} from '../hooks/useSwitchChain.js'
 
 export {
   type UseTransactionCountParameters,
   type UseTransactionCountReturnType,
   useTransactionCount,
-} from '../hooks/useTransactionCount'
+} from '../hooks/useTransactionCount.js'
 
 export {
   type UseWalletClientParameters,
   type UseWalletClientReturnType,
   useWalletClient,
-} from '../hooks/useWalletClient'
+} from '../hooks/useWalletClient.js'
 
 export {
   type UseWatchBlockHashParameters,
   type UseWatchBlockHashReturnType,
   useWatchBlockHash,
-} from '../hooks/useWatchBlockHash'
+} from '../hooks/useWatchBlockHash.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hydrate
 ////////////////////////////////////////////////////////////////////////////////
 
-export { type HydrateProps, Hydrate } from '../hydrate'
+export { type HydrateProps, Hydrate } from '../hydrate.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // @/lib/connect/core/exports
@@ -230,4 +230,4 @@ export {
 // Version
 ////////////////////////////////////////////////////////////////////////////////
 
-export { version } from '../version'
+export { version } from '../version.js'

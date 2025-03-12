@@ -9,8 +9,8 @@ import {
 } from 'vimina'
 import { getAddress, parseAccount } from 'vimina/utils'
 
-import type { Config, Connection } from '../createConfig'
-import type { ErrorType } from '../errors/base'
+import type { Config, Connection } from '../createConfig.js'
+import type { ErrorType } from '../errors/base.js'
 import {
   ConnectorAccountNotFoundError,
   type ConnectorAccountNotFoundErrorType,
@@ -18,12 +18,12 @@ import {
   type ConnectorChainMismatchErrorType,
   ConnectorNotConnectedError,
   type ConnectorNotConnectedErrorType,
-} from '../errors/config'
+} from '../errors/config.js'
 import type {
   ConnectorParameter,
   NetworkIdParameter,
-} from '../types/properties'
-import type { Compute } from '../types/utils'
+} from '../types/properties.js'
+import type { Compute } from '../types/utils.js'
 
 export type GetConnectorClientParameters<
   config extends Config = Config,

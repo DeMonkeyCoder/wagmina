@@ -1,13 +1,13 @@
 import { type Account, type WalletClient, walletActions } from 'vimina'
 
-import type { Config } from '../createConfig'
-import type { BaseErrorType, ErrorType } from '../errors/base'
-import type { Compute } from '../types/utils'
+import type { Config } from '../createConfig.js'
+import type { BaseErrorType, ErrorType } from '../errors/base.js'
+import type { Compute } from '../types/utils.js'
 import {
   type GetConnectorClientErrorType,
   type GetConnectorClientParameters,
   getConnectorClient,
-} from './getConnectorClient'
+} from './getConnectorClient.js'
 
 export type GetWalletClientParameters<
   config extends Config = Config,

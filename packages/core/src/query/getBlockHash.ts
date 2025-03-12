@@ -5,11 +5,11 @@ import {
   type GetBlockHashParameters,
   type GetBlockHashReturnType,
   getBlockHash,
-} from '../actions/getBlockHash'
-import type { Config } from '../createConfig'
-import type { ScopeKeyParameter } from '../types/properties'
-import type { Compute, ExactPartial } from '../types/utils'
-import { filterQueryOptions } from './utils'
+} from '../actions/getBlockHash.js'
+import type { Config } from '../createConfig.js'
+import type { ScopeKeyParameter } from '../types/properties.js'
+import type { Compute, ExactPartial } from '../types/utils.js'
+import { filterQueryOptions } from './utils.js'
 
 export type GetBlockHashOptions<
   config extends Config,

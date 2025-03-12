@@ -5,12 +5,12 @@ import type {
 } from 'vimina'
 import { sendSignedTransaction as viem_sendSignedTransaction } from 'vimina/actions'
 
-import type { Config } from '../createConfig'
-import type { BaseErrorType, ErrorType } from '../errors/base'
-import type { NetworkIdParameter } from '../types/properties'
-import type { Compute } from '../types/utils'
-import { getAction } from '../utils/getAction'
-import type { GetConnectorClientErrorType } from './getConnectorClient'
+import type { Config } from '../createConfig.js'
+import type { BaseErrorType, ErrorType } from '../errors/base.js'
+import type { NetworkIdParameter } from '../types/properties.js'
+import type { Compute } from '../types/utils.js'
+import { getAction } from '../utils/getAction.js'
+import type { GetConnectorClientErrorType } from './getConnectorClient.js'
 
 export type SendSignedTransactionParameters<
   config extends Config = Config,

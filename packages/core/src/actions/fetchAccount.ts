@@ -8,10 +8,10 @@ import {
 
 import type { SelectChains } from '@/lib/connect/core/types/chain'
 import type { NetworkIdParameter } from '@/lib/connect/core/types/properties'
-import type { Config } from '../createConfig'
-import type { Unit } from '../types/unit'
-import type { Compute } from '../types/utils'
-import { getAction } from '../utils/getAction'
+import type { Config } from '../createConfig.js'
+import type { Unit } from '../types/unit.js'
+import type { Compute } from '../types/utils.js'
+import { getAction } from '../utils/getAction.js'
 
 export type FetchAccountParameters<
   config extends Config = Config,

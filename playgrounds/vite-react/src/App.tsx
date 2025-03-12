@@ -23,7 +23,7 @@ import {
 } from 'wagmi'
 import { optimism } from 'wagmi/chains'
 
-import { wagmiContractConfig } from './contracts'
+import { wagmiContractConfig } from './contracts.js'
 
 function App() {
   useAccountEffect({

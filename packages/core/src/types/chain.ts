@@ -1,7 +1,7 @@
 import type { Chain, ChainFormatters } from 'vimina'
 
-import type { Config } from '../createConfig'
-import type { IsNarrowable, Merge } from './utils'
+import type { Config } from '../createConfig.js'
+import type { IsNarrowable, Merge } from './utils.js'
 
 /** Filters {@link Config} chains by {@link networkId} or simplifies if no `ChainFormatters` are present. */
 export type SelectChains<

@@ -5,9 +5,9 @@ import {
   type SendSignedTransactionErrorType,
   type SendSignedTransactionParameters,
   type SendSignedTransactionReturnType,
-} from '../actions/sendSignedTransaction'
-import type { Config } from '../createConfig'
-import type { Compute } from '../types/utils'
+} from '../actions/sendSignedTransaction.js'
+import type { Config } from '../createConfig.js'
+import type { Compute } from '../types/utils.js'
 
 export function sendSignedTransactionMutationOptions<config extends Config>(
   config: config,

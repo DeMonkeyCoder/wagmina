@@ -1,10 +1,10 @@
-import type { Config, Connection, Connector } from '../createConfig'
-import type { BaseErrorType, ErrorType } from '../errors/base'
+import type { Config, Connection, Connector } from '../createConfig.js'
+import type { BaseErrorType, ErrorType } from '../errors/base.js'
 import type {
   ConnectorNotConnectedErrorType,
   ConnectorNotFoundErrorType,
-} from '../errors/config'
-import type { ConnectorParameter } from '../types/properties'
+} from '../errors/config.js'
+import type { ConnectorParameter } from '../types/properties.js'
 
 export type DisconnectParameters = ConnectorParameter
 

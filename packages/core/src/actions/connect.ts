@@ -4,15 +4,15 @@ import type {
   UserRejectedRequestErrorType,
 } from 'vimina'
 
-import type { CreateConnectorFn } from '../connectors/createConnector'
-import type { Config, Connector } from '../createConfig'
-import type { BaseErrorType, ErrorType } from '../errors/base'
+import type { CreateConnectorFn } from '../connectors/createConnector.js'
+import type { Config, Connector } from '../createConfig.js'
+import type { BaseErrorType, ErrorType } from '../errors/base.js'
 import {
   ConnectorAlreadyConnectedError,
   type ConnectorAlreadyConnectedErrorType,
-} from '../errors/config'
-import type { NetworkIdParameter } from '../types/properties'
-import type { Compute } from '../types/utils'
+} from '../errors/config.js'
+import type { NetworkIdParameter } from '../types/properties.js'
+import type { Compute } from '../types/utils.js'
 
 export type ConnectParameters<config extends Config = Config> = Compute<
   NetworkIdParameter<config> & {

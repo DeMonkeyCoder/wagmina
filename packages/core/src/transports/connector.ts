@@ -11,7 +11,7 @@ import {
   withTimeout,
 } from 'vimina'
 
-import type { Connector, Transport } from '../createConfig'
+import type { Connector, Transport } from '../createConfig.js'
 
 export type ConnectorTransportConfig = {
   /** The key of the transport. */

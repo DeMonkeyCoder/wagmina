@@ -15,12 +15,12 @@ import {
 } from '@/lib/connect/core/exports/query'
 import { useMutation } from '@tanstack/react-query'
 
-import type { ConfigParameter } from '../types/properties'
+import type { ConfigParameter } from '../types/properties.js'
 import type {
   UseMutationParameters,
   UseMutationReturnType,
-} from '../utils/query'
-import { useConfig } from './useConfig'
+} from '../utils/query.js'
+import { useConfig } from './useConfig.js'
 
 export type UseSendSignedTransactionParameters<
   config extends Config = Config,

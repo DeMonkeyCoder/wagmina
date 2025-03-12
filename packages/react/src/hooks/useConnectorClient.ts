@@ -16,15 +16,15 @@ import {
 } from '@/lib/connect/core/exports/query'
 import { useEffect, useRef } from 'react'
 
-import type { ConfigParameter } from '../types/properties'
+import type { ConfigParameter } from '../types/properties.js'
 import {
   type UseQueryParameters,
   type UseQueryReturnType,
   useQuery,
-} from '../utils/query'
-import { useAccount } from './useAccount'
-import { useNetworkId } from './useNetworkId'
-import { useConfig } from './useConfig'
+} from '../utils/query.js'
+import { useAccount } from './useAccount.js'
+import { useNetworkId } from './useNetworkId.js'
+import { useConfig } from './useConfig.js'
 
 export type UseConnectorClientParameters<
   config extends Config = Config,

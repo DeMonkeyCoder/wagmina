@@ -1,6 +1,6 @@
 import type { Chain } from 'vimina'
-import type { Config } from '../createConfig'
-import { deepEqual } from '../utils/deepEqual'
+import type { Config } from '../createConfig.js'
+import { deepEqual } from '../utils/deepEqual.js'
 
 export type GetChainsReturnType<config extends Config = Config> = readonly [
   ...config['chains'],

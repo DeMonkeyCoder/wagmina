@@ -7,10 +7,10 @@ import type {
   ProviderMessage,
 } from 'vimina'
 
-import type { Transport } from '../createConfig'
-import type { Emitter } from '../createEmitter'
-import type { Storage } from '../createStorage'
-import type { Compute, ExactPartial, StrictOmit } from '../types/utils'
+import type { Transport } from '../createConfig.js'
+import type { Emitter } from '../createEmitter.js'
+import type { Storage } from '../createStorage.js'
+import type { Compute, ExactPartial, StrictOmit } from '../types/utils.js'
 
 export type ConnectorEventMap = {
   change: {

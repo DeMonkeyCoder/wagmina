@@ -5,11 +5,11 @@ import {
   type GetBalanceErrorType,
   type GetBalanceParameters,
   type GetBalanceReturnType,
-} from '../actions/getBalance'
-import type { Config } from '../createConfig'
-import type { ScopeKeyParameter } from '../types/properties'
-import type { Compute, PartialBy } from '../types/utils'
-import { filterQueryOptions } from './utils'
+} from '../actions/getBalance.js'
+import type { Config } from '../createConfig.js'
+import type { ScopeKeyParameter } from '../types/properties.js'
+import type { Compute, PartialBy } from '../types/utils.js'
+import { filterQueryOptions } from './utils.js'
 
 export type GetBalanceOptions<config extends Config> = Compute<
   PartialBy<GetBalanceParameters<config>, 'address'> & ScopeKeyParameter

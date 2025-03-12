@@ -12,9 +12,9 @@ import type {
 } from '@/lib/connect/core/exports/internal'
 import { useEffect } from 'react'
 
-import type { ConfigParameter, EnabledParameter } from '../types/properties'
-import { useNetworkId } from './useNetworkId'
-import { useConfig } from './useConfig'
+import type { ConfigParameter, EnabledParameter } from '../types/properties.js'
+import { useNetworkId } from './useNetworkId.js'
+import { useConfig } from './useConfig.js'
 
 export type UseWatchBlockHashParameters<
   config extends Config = Config,

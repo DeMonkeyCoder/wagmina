@@ -14,11 +14,11 @@ import {
   fetchAccountQueryOptions,
 } from '@/lib/connect/core/exports/query'
 
-import type { ConfigParameter, QueryParameter } from '../types/properties'
-import { type UseQueryReturnType, useQuery } from '../utils/query'
-import { useConfig } from './useConfig'
-import { useInvalidateOnBlock } from './useInvalidateOnBlock'
-import { useNetworkId } from './useNetworkId'
+import type { ConfigParameter, QueryParameter } from '../types/properties.js'
+import { type UseQueryReturnType, useQuery } from '../utils/query.js'
+import { useConfig } from './useConfig.js'
+import { useInvalidateOnBlock } from './useInvalidateOnBlock.js'
+import { useNetworkId } from './useNetworkId.js'
 
 export type UseFetchAccountParameters<
   config extends Config = Config,

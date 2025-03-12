@@ -3,10 +3,10 @@ import { Inter } from 'next/font/google'
 import { headers } from 'next/headers'
 import type { ReactNode } from 'react'
 import { cookieToInitialState } from 'wagmi'
-import './globals.css'
+import './globals.css.js'
 
-import { getConfig } from '../wagmi'
-import { Providers } from './providers'
+import { getConfig } from '../wagmi.js'
+import { Providers } from './providers.js'
 
 const inter = Inter({ subsets: ['latin'] })
 

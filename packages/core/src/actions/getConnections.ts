@@ -1,6 +1,6 @@
-import type { Config, Connection } from '../createConfig'
-import type { Compute } from '../types/utils'
-import { deepEqual } from '../utils/deepEqual'
+import type { Config, Connection } from '../createConfig.js'
+import type { Compute } from '../types/utils.js'
+import { deepEqual } from '../utils/deepEqual.js'
 
 export type GetConnectionsReturnType = Compute<Connection>[]
 

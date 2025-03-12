@@ -6,7 +6,7 @@
  * @returns the reference key
  */
 function getReferenceKey(keys: string[], cutoff: number) {
-  return keys.slice(0, cutoff).join('.') || '.'
+  return keys.slice(0, cutoff).join('.') || '..js'
 }
 
 /**

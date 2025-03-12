@@ -5,7 +5,7 @@ import type { Omit } from '@/lib/connect/core/exports/internal'
 import type {
   UseInfiniteQueryParameters,
   UseQueryParameters,
-} from '../utils/query'
+} from '../utils/query.js'
 
 export type EnabledParameter = {
   enabled?: boolean | undefined

@@ -18,20 +18,20 @@ import { type Mutate, type StoreApi, createStore } from 'zustand/vanilla'
 import type {
   ConnectorEventMap,
   CreateConnectorFn,
-} from './connectors/createConnector'
-import { injected } from './connectors/injected'
-import { type Emitter, type EventData, createEmitter } from './createEmitter'
-import { type Storage, createStorage, noopStorage } from './createStorage'
-import { ChainNotConfiguredError } from './errors/config'
+} from './connectors/createConnector.js'
+import { injected } from './connectors/injected.js'
+import { type Emitter, type EventData, createEmitter } from './createEmitter.js'
+import { type Storage, createStorage, noopStorage } from './createStorage.js'
+import { ChainNotConfiguredError } from './errors/config.js'
 import type {
   Compute,
   ExactPartial,
   LooseOmit,
   OneOf,
   RemoveUndefined,
-} from './types/utils'
-import { uid } from './utils/uid'
-import { version } from './version'
+} from './types/utils.js'
+import { uid } from './utils/uid.js'
+import { version } from './version.js'
 
 export type CreateConfigParameters<
   chains extends readonly [Chain, ...Chain[]] = readonly [Chain, ...Chain[]],

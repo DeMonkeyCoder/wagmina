@@ -1,5 +1,5 @@
-import type { Config } from '../createConfig'
-import type { GetChainsReturnType } from './getChains'
+import type { Config } from '../createConfig.js'
+import type { GetChainsReturnType } from './getChains.js'
 
 export type WatchChainsParameters<config extends Config = Config> = {
   onChange(

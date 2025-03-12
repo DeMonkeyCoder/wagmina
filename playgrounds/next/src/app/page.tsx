@@ -27,7 +27,7 @@ import {
 import { switchChain } from 'wagmi/actions'
 import { optimism, sepolia } from 'wagmi/chains'
 
-import { wagmiContractConfig } from './contracts'
+import { wagmiContractConfig } from './contracts.js'
 
 export default function App() {
   useAccountEffect({

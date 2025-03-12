@@ -7,25 +7,25 @@ export {
   type WatchChainsParameters,
   type WatchChainsReturnType,
   watchChains,
-} from '../actions/watchChains'
+} from '../actions/watchChains.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Emitter
 ////////////////////////////////////////////////////////////////////////////////
 
-export { type EventData, Emitter, createEmitter } from '../createEmitter'
+export { type EventData, Emitter, createEmitter } from '../createEmitter.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types
 ////////////////////////////////////////////////////////////////////////////////
 
-export { type SelectChains } from '../types/chain'
+export { type SelectChains } from '../types/chain.js'
 
 export {
   type NetworkIdParameter,
   type ConnectorParameter,
   type ScopeKeyParameter,
-} from '../types/properties'
+} from '../types/properties.js'
 
 export {
   type Compute,
@@ -37,12 +37,12 @@ export {
   type UnionCompute,
   type UnionStrictOmit,
   type UnionExactPartial,
-} from '../types/utils'
+} from '../types/utils.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Utilities
 ////////////////////////////////////////////////////////////////////////////////
 
-export { deepEqual } from '../utils/deepEqual'
+export { deepEqual } from '../utils/deepEqual.js'
 
-export { uid } from '../utils/uid'
+export { uid } from '../utils/uid.js'

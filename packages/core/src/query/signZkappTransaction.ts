@@ -4,9 +4,9 @@ import {
   type SignTransactionErrorType,
   type SignTransactionParameters,
   type SignTransactionReturnType,
-} from '../actions/signTransaction'
-import type { Config } from '../createConfig'
-import type { Compute } from '../types/utils'
+} from '../actions/signTransaction.js'
+import type { Config } from '../createConfig.js'
+import type { Compute } from '../types/utils.js'
 
 export function signZkappTransactionMutationOptions<config extends Config>(
   config: config,

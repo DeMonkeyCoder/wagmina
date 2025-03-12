@@ -4,19 +4,19 @@ import type {
   SwitchChainErrorType as viem_SwitchChainErrorType,
 } from 'vimina'
 
-import type { Config } from '../createConfig'
-import type { BaseErrorType, ErrorType } from '../errors/base'
+import type { Config } from '../createConfig.js'
+import type { BaseErrorType, ErrorType } from '../errors/base.js'
 import {
   ChainNotConfiguredError,
   type ChainNotConfiguredErrorType,
-} from '../errors/config'
+} from '../errors/config.js'
 import {
   type ProviderNotFoundErrorType,
   SwitchChainNotSupportedError,
   type SwitchChainNotSupportedErrorType,
-} from '../errors/connector'
-import type { ConnectorParameter } from '../types/properties'
-import type { Compute, ExactPartial } from '../types/utils'
+} from '../errors/connector.js'
+import type { ConnectorParameter } from '../types/properties.js'
+import type { Compute, ExactPartial } from '../types/utils.js'
 
 export type SwitchChainParameters<
   config extends Config = Config,

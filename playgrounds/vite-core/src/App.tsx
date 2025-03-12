@@ -14,7 +14,7 @@ import {
 import { useEffect, useReducer, useState } from 'react'
 
 import { formatEther } from 'viem'
-import { config } from './wagmi'
+import { config } from './wagmi.js'
 
 function App() {
   useEffect(() => {

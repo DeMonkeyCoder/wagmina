@@ -13,11 +13,11 @@ import {
   withTimeout,
 } from 'vimina'
 
-import type { Connector } from '../createConfig'
-import { ChainNotConfiguredError } from '../errors/config'
-import { ProviderNotFoundError } from '../errors/connector'
-import type { Compute } from '../types/utils'
-import { createConnector } from './createConnector'
+import type { Connector } from '../createConfig.js'
+import { ChainNotConfiguredError } from '../errors/config.js'
+import { ProviderNotFoundError } from '../errors/connector.js'
+import type { Compute } from '../types/utils.js'
+import { createConnector } from './createConnector.js'
 
 export type InjectedParameters = {
   /**

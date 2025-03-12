@@ -1,6 +1,6 @@
 import type { Address, Chain } from 'vimina'
 
-import type { Config, Connector } from '../createConfig'
+import type { Config, Connector } from '../createConfig.js'
 
 export type GetAccountReturnType<
   config extends Config = Config,

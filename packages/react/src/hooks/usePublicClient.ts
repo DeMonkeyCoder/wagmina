@@ -11,8 +11,8 @@ import {
 import type { Compute } from '@/lib/connect/core/exports/internal'
 import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector'
 
-import type { ConfigParameter } from '../types/properties'
-import { useConfig } from './useConfig'
+import type { ConfigParameter } from '../types/properties.js'
+import { useConfig } from './useConfig.js'
 
 export type UsePublicClientParameters<
   config extends Config = Config,

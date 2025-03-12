@@ -1,5 +1,5 @@
-import type { Config } from '../createConfig'
-import type { GetNetworkIdReturnType } from './getNetworkId'
+import type { Config } from '../createConfig.js'
+import type { GetNetworkIdReturnType } from './getNetworkId.js'
 
 export type WatchNetworkIdParameters<config extends Config = Config> = {
   onChange(

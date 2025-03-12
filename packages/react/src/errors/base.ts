@@ -1,6 +1,6 @@
 import { BaseError as CoreError } from '@/lib/connect/core/exports'
 
-import { getVersion } from '../utils/getVersion'
+import { getVersion } from '../utils/getVersion.js'
 
 export type BaseErrorType = BaseError & { name: 'WagmiError' }
 

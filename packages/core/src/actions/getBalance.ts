@@ -5,11 +5,11 @@ import {
   getBalance as viem_getBalance,
 } from 'vimina/actions'
 
-import type { Config } from '../createConfig'
-import type { NetworkIdParameter } from '../types/properties'
-import type { Unit } from '../types/unit'
-import type { Compute } from '../types/utils'
-import { getAction } from '../utils/getAction'
+import type { Config } from '../createConfig.js'
+import type { NetworkIdParameter } from '../types/properties.js'
+import type { Unit } from '../types/unit.js'
+import type { Compute } from '../types/utils.js'
+import { getAction } from '../utils/getAction.js'
 
 export type GetBalanceParameters<config extends Config = Config> = Compute<
   NetworkIdParameter<config> &

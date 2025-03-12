@@ -16,8 +16,8 @@ import { rpc } from 'vimina/utils'
 import {
   ChainNotConfiguredError,
   ConnectorNotConnectedError,
-} from '../errors/config'
-import { createConnector } from './createConnector'
+} from '../errors/config.js'
+import { createConnector } from './createConnector.js'
 
 export type MockParameters = {
   accounts: readonly [Address, ...Address[]]

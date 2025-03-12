@@ -1,8 +1,8 @@
 import type { Client } from 'vimina'
 
-import type { Config } from '../createConfig'
-import type { NetworkIdParameter } from '../types/properties'
-import type { Compute, IsNarrowable } from '../types/utils'
+import type { Config } from '../createConfig.js'
+import type { NetworkIdParameter } from '../types/properties.js'
+import type { Compute, IsNarrowable } from '../types/utils.js'
 
 export type GetClientParameters<
   config extends Config = Config,

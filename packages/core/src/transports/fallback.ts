@@ -1,6 +1,6 @@
 import { fallback as viem_fallback } from 'vimina'
 
-import type { Transport } from '../createConfig'
+import type { Transport } from '../createConfig.js'
 
 export function fallback(
   transports: Transport[],

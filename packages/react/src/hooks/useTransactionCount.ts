@@ -15,10 +15,10 @@ import {
 } from '@/lib/connect/core/exports/query'
 
 import { useInvalidateOnBlock } from '@/lib/connect/react/hooks/useInvalidateOnBlock'
-import type { ConfigParameter, QueryParameter } from '../types/properties'
-import { type UseQueryReturnType, useQuery } from '../utils/query'
-import { useConfig } from './useConfig'
-import { useNetworkId } from './useNetworkId'
+import type { ConfigParameter, QueryParameter } from '../types/properties.js'
+import { type UseQueryReturnType, useQuery } from '../utils/query.js'
+import { useConfig } from './useConfig.js'
+import { useNetworkId } from './useNetworkId.js'
 
 export type UseTransactionCountParameters<
   config extends Config = Config,

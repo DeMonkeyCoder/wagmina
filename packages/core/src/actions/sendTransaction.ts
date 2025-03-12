@@ -8,19 +8,19 @@ import type {
 } from 'vimina'
 import { sendTransaction as viem_sendTransaction } from 'vimina/actions'
 
-import type { Config } from '../createConfig'
-import type { BaseErrorType, ErrorType } from '../errors/base'
-import type { SelectChains } from '../types/chain'
+import type { Config } from '../createConfig.js'
+import type { BaseErrorType, ErrorType } from '../errors/base.js'
+import type { SelectChains } from '../types/chain.js'
 import type {
   ConnectorParameter,
   NetworkIdParameter,
-} from '../types/properties'
-import type { Compute } from '../types/utils'
-import { getAction } from '../utils/getAction'
+} from '../types/properties.js'
+import type { Compute } from '../types/utils.js'
+import { getAction } from '../utils/getAction.js'
 import {
   type GetConnectorClientErrorType,
   getConnectorClient,
-} from './getConnectorClient'
+} from './getConnectorClient.js'
 
 export type SendTransactionParameters<
   config extends Config = Config,

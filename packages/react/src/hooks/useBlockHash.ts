@@ -19,14 +19,14 @@ import {
   getBlockHashQueryOptions,
 } from '@/lib/connect/core/exports/query'
 
-import type { ConfigParameter, QueryParameter } from '../types/properties'
-import { useQuery, type UseQueryReturnType } from '../utils/query'
-import { useNetworkId } from './useNetworkId'
-import { useConfig } from './useConfig'
+import type { ConfigParameter, QueryParameter } from '../types/properties.js'
+import { useQuery, type UseQueryReturnType } from '../utils/query.js'
+import { useNetworkId } from './useNetworkId.js'
+import { useConfig } from './useConfig.js'
 import {
   useWatchBlockHash,
   type UseWatchBlockHashParameters,
-} from './useWatchBlockHash'
+} from './useWatchBlockHash.js'
 
 export type UseBlockHashParameters<
   config extends Config = Config,

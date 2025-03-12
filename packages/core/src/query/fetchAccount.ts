@@ -6,11 +6,11 @@ import {
   type FetchAccountParameters,
   type FetchAccountReturnType,
   fetchAccount,
-} from '../actions/fetchAccount'
-import type { Config } from '../createConfig'
-import type { ScopeKeyParameter } from '../types/properties'
-import type { Compute, PartialBy } from '../types/utils'
-import { filterQueryOptions } from './utils'
+} from '../actions/fetchAccount.js'
+import type { Config } from '../createConfig.js'
+import type { ScopeKeyParameter } from '../types/properties.js'
+import type { Compute, PartialBy } from '../types/utils.js'
+import { filterQueryOptions } from './utils.js'
 
 export type FetchAccountOptions<
   config extends Config,

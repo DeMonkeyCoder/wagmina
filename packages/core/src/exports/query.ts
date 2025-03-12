@@ -9,7 +9,7 @@ export {
   type ConnectMutate,
   type ConnectMutateAsync,
   connectMutationOptions,
-} from '../query/connect'
+} from '../query/connect.js'
 
 export {
   type DisconnectData,
@@ -17,7 +17,7 @@ export {
   type DisconnectMutate,
   type DisconnectMutateAsync,
   disconnectMutationOptions,
-} from '../query/disconnect'
+} from '../query/disconnect.js'
 
 export {
   type FetchAccountData,
@@ -26,7 +26,7 @@ export {
   type FetchAccountQueryKey,
   fetchAccountQueryKey,
   fetchAccountQueryOptions,
-} from '../query/fetchAccount'
+} from '../query/fetchAccount.js'
 
 export {
   type GetBalanceData,
@@ -35,7 +35,7 @@ export {
   type GetBalanceQueryKey,
   getBalanceQueryKey,
   getBalanceQueryOptions,
-} from '../query/getBalance'
+} from '../query/getBalance.js'
 
 export {
   type GetBlockHashData,
@@ -44,7 +44,7 @@ export {
   type GetBlockHashQueryKey,
   getBlockHashQueryKey,
   getBlockHashQueryOptions,
-} from '../query/getBlockHash'
+} from '../query/getBlockHash.js'
 
 export {
   type GetConnectorClientData,
@@ -53,7 +53,7 @@ export {
   type GetConnectorClientQueryKey,
   getConnectorClientQueryKey,
   getConnectorClientQueryOptions,
-} from '../query/getConnectorClient'
+} from '../query/getConnectorClient.js'
 
 export {
   type GetTransactionCountData,
@@ -62,7 +62,7 @@ export {
   type GetTransactionCountQueryKey,
   getTransactionCountQueryKey,
   getTransactionCountQueryOptions,
-} from '../query/getTransactionCount'
+} from '../query/getTransactionCount.js'
 
 export {
   type GetWalletClientData,
@@ -71,7 +71,7 @@ export {
   type GetWalletClientQueryKey,
   getWalletClientQueryKey,
   getWalletClientQueryOptions,
-} from '../query/getWalletClient'
+} from '../query/getWalletClient.js'
 
 export {
   type ReconnectData,
@@ -79,7 +79,7 @@ export {
   type ReconnectMutate,
   type ReconnectMutateAsync,
   reconnectMutationOptions,
-} from '../query/reconnect'
+} from '../query/reconnect.js'
 
 export {
   type SendTransactionData,
@@ -87,7 +87,7 @@ export {
   type SendTransactionMutate,
   type SendTransactionMutateAsync,
   sendTransactionMutationOptions,
-} from '../query/sendTransaction'
+} from '../query/sendTransaction.js'
 
 export {
   type SendSignedTransactionData,
@@ -95,7 +95,7 @@ export {
   type SendSignedTransactionMutate,
   type SendSignedTransactionMutateAsync,
   sendSignedTransactionMutationOptions,
-} from '../query/sendSignedTransaction'
+} from '../query/sendSignedTransaction.js'
 
 export {
   type SignDelegationTransactionData,
@@ -103,7 +103,7 @@ export {
   type SignDelegationTransactionMutate,
   type SignDelegationTransactionMutateAsync,
   signDelegationTransactionMutationOptions,
-} from '../query/signDelegationTransaction'
+} from '../query/signDelegationTransaction.js'
 
 export {
   type SignPaymentTransactionData,
@@ -111,7 +111,7 @@ export {
   type SignPaymentTransactionMutate,
   type SignPaymentTransactionMutateAsync,
   signPaymentTransactionMutationOptions,
-} from '../query/signPaymentTransaction'
+} from '../query/signPaymentTransaction.js'
 
 export {
   type SignZkappTransactionData,
@@ -119,7 +119,7 @@ export {
   type SignZkappTransactionMutate,
   type SignZkappTransactionMutateAsync,
   signZkappTransactionMutationOptions,
-} from '../query/signZkappTransaction'
+} from '../query/signZkappTransaction.js'
 
 export {
   type SwitchAccountData,
@@ -127,7 +127,7 @@ export {
   type SwitchAccountMutate,
   type SwitchAccountMutateAsync,
   switchAccountMutationOptions,
-} from '../query/switchAccount'
+} from '../query/switchAccount.js'
 
 export {
   type SwitchChainData,
@@ -135,6 +135,6 @@ export {
   type SwitchChainMutate,
   type SwitchChainMutateAsync,
   switchChainMutationOptions,
-} from '../query/switchChain'
+} from '../query/switchChain.js'
 
-export { hashFn, structuralSharing } from '../query/utils'
+export { hashFn, structuralSharing } from '../query/utils.js'

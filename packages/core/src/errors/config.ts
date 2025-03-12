@@ -1,7 +1,7 @@
 import type { Address } from 'vimina'
 
-import type { Connector } from '../createConfig'
-import { BaseError } from './base'
+import type { Connector } from '../createConfig.js'
+import { BaseError } from './base.js'
 
 export type ChainNotConfiguredErrorType = ChainNotConfiguredError & {
   name: 'ChainNotConfiguredError'

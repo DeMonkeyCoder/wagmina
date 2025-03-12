@@ -5,10 +5,10 @@ import {
   getTransactionCount as viem_getTransactionCount,
 } from 'vimina/actions'
 
-import type { Config } from '../createConfig'
-import type { NetworkIdParameter } from '../types/properties'
-import type { Compute } from '../types/utils'
-import { getAction } from '../utils/getAction'
+import type { Config } from '../createConfig.js'
+import type { NetworkIdParameter } from '../types/properties.js'
+import type { Compute } from '../types/utils.js'
+import { getAction } from '../utils/getAction.js'
 
 export type GetTransactionCountParameters<config extends Config = Config> =
   Compute<NetworkIdParameter<config> & viem_GetTransactionCountParameters>

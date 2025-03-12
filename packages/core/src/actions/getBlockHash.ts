@@ -5,10 +5,10 @@ import {
   getBlockHash as viem_getBlockHash,
 } from 'vimina/actions'
 
-import type { Config } from '../createConfig'
-import type { NetworkIdParameter } from '../types/properties'
-import type { Compute } from '../types/utils'
-import { getAction } from '../utils/getAction'
+import type { Config } from '../createConfig.js'
+import type { NetworkIdParameter } from '../types/properties.js'
+import type { Compute } from '../types/utils.js'
+import { getAction } from '../utils/getAction.js'
 
 export type GetBlockHashParameters<
   config extends Config = Config,

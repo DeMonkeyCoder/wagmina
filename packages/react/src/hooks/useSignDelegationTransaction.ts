@@ -15,12 +15,12 @@ import {
   type SignDelegationTransactionVariables,
 } from '@/lib/connect/core/exports/query'
 
-import type { ConfigParameter } from '../types/properties'
+import type { ConfigParameter } from '../types/properties.js'
 import type {
   UseMutationParameters,
   UseMutationReturnType,
-} from '../utils/query'
-import { useConfig } from './useConfig'
+} from '../utils/query.js'
+import { useConfig } from './useConfig.js'
 
 export type UseSignDelegationTransactionParameters<
   config extends Config = Config,

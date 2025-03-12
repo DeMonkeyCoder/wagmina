@@ -1,5 +1,5 @@
 import { type QueryKey, replaceEqualDeep } from '@tanstack/query-core'
-import { deepEqual } from '../utils/deepEqual'
+import { deepEqual } from '../utils/deepEqual.js'
 
 export function structuralSharing<data>(
   oldData: data | undefined,

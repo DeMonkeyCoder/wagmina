@@ -1,5 +1,5 @@
-import type { Config, Connector } from '../createConfig'
-import { deepEqual } from '../utils/deepEqual'
+import type { Config, Connector } from '../createConfig.js'
+import { deepEqual } from '../utils/deepEqual.js'
 
 export type GetConnectorsReturnType = readonly Connector[]
 
