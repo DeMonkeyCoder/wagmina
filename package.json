@@ -15,7 +15,6 @@
     "dev:next": "pnpm --filter next-app dev",
     "dev:nuxt": "pnpm --filter nuxt-app dev",
     "dev:react": "pnpm --filter vite-react dev",
-    "dev:vue": "pnpm --filter vite-vue dev",
     "docs:dev": "pnpm --filter site dev",
     "format": "biome format --write",
     "lint": "biome check --write",
@@ -35,7 +34,6 @@
     "test:typecheck": "vitest typecheck",
     "test:update": "vitest --update",
     "test:ui": "vitest --ui",
-    "test:vue": "vitest --project @wagmi/vue",
     "typecheck": "pnpm run --r --parallel typecheck && tsc --noEmit",
     "version:update": "bun scripts/updateVersion.ts",
     "version:update:viem": "bun scripts/updateViemVersion.ts"
@@ -57,7 +55,7 @@
     "sherif": "^0.8.4",
     "simple-git-hooks": "^2.11.1",
     "typescript": "5.5.2",
-    "viem": "2.17.0",
+    "vimina": "https://pkg.pr.new/DeMonkeyCoder/vimina@414040a",
     "vitest": "^1.6.0"
   },
   "packageManager": "pnpm@9.4.0",
@@ -78,37 +76,15 @@
     "pre-commit": "pnpm lint"
   },
   "knip": {
-    "ignore": [
-      "**/templates/**",
-      "**/hardhat.config.js"
-    ],
     "ignoreBinaries": [
       "only-allow"
     ],
     "ignoreWorkspaces": [
-      "packages/register-tests/**",
-      "packages/test",
       "playgrounds/**"
     ],
     "workspaces": {
       ".": {
         "project": "scripts/*.ts"
-      },
-      "packages/cli": {
-        "entry": [
-          "src/cli.ts!",
-          "src/exports/{config,index,plugins}.ts!",
-          "types/*.d.ts!"
-        ],
-        "ignore": [
-          "test/{constants,setup,utils}.ts"
-        ]
-      },
-      "packages/connectors": {
-        "entry": "src/exports/index.ts!",
-        "ignoreDependencies": [
-          "@walletconnect/modal"
-        ]
       },
       "packages/core": {
         "entry": "src/exports/{actions,chains,codegen,experimental,index,internal,query}.ts!",
@@ -119,35 +95,10 @@
           "@tanstack/query-core"
         ]
       },
-      "packages/create-wagmi": {
-        "entry": "src/cli.ts!"
-      },
       "packages/react": {
         "entry": "src/exports/{actions,chains,codegen,connectors,experimental,index,query}.ts!",
         "ignore": [
           "test/setup.ts"
-        ]
-      },
-      "packages/test": {
-        "entry": [
-          "src/{globalSetup,setup}.ts!",
-          "src/exports/{index,react}.ts!"
-        ]
-      },
-      "packages/vue": {
-        "entry": "src/exports/{actions,chains,connectors,index,nuxt,query}.ts!",
-        "ignore": [
-          "src/nuxt/runtime/*",
-          "test/setup.ts"
-        ],
-        "ignoreDependencies": [
-          "nuxt"
-        ]
-      },
-      "site": {
-        "project": [
-          "**/*.ts",
-          "**/*.tsx"
         ]
       }
     }
