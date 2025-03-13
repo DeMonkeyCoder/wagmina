@@ -26,7 +26,6 @@ export type GetBalanceReturnType = {
 
 export type GetBalanceErrorType = viem_GetBalanceErrorType
 
-/** https://wagmi.sh/core/api/actions/getBalance */
 export async function getBalance<config extends Config>(
   config: config,
   parameters: GetBalanceParameters<config>,

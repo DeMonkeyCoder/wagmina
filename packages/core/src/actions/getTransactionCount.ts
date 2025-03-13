@@ -17,7 +17,6 @@ export type GetTransactionCountReturnType = viem_GetTransactionCountReturnType
 
 export type GetTransactionCountErrorType = viem_GetTransactionCountErrorType
 
-/** https://wagmi.sh/core/api/actions/getTransactionCount */
 export async function getTransactionCount<config extends Config>(
   config: config,
   parameters: GetTransactionCountParameters<config>,

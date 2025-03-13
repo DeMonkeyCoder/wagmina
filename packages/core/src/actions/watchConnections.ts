@@ -1,6 +1,9 @@
 import type { Config } from '../createConfig.js'
 import { deepEqual } from '../utils/deepEqual.js'
-import { type GetConnectionsReturnType, getConnections } from './getConnections.js'
+import {
+  type GetConnectionsReturnType,
+  getConnections,
+} from './getConnections.js'
 
 export type WatchConnectionsParameters = {
   onChange(
@@ -11,7 +14,6 @@ export type WatchConnectionsParameters = {
 
 export type WatchConnectionsReturnType = () => void
 
-/** https://wagmi.sh/core/api/actions/watchConnections */
 export function watchConnections(
   config: Config,
   parameters: WatchConnectionsParameters,

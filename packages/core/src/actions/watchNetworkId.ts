@@ -10,7 +10,6 @@ export type WatchNetworkIdParameters<config extends Config = Config> = {
 
 export type WatchNetworkIdReturnType = () => void
 
-/** https://wagmi.sh/core/api/actions/watchNetworkId */
 export function watchNetworkId<config extends Config>(
   config: config,
   parameters: WatchNetworkIdParameters<config>,

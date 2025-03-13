@@ -18,7 +18,6 @@ export type UseNetworkIdParameters<config extends Config = Config> =
 export type UseNetworkIdReturnType<config extends Config = Config> =
   GetNetworkIdReturnType<config>
 
-/** https://wagmi.sh/react/api/hooks/useNetworkId */
 export function useNetworkId<
   config extends Config = ResolvedRegister['config'],
 >(

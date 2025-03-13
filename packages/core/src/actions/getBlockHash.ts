@@ -20,7 +20,6 @@ export type GetBlockHashReturnType = viem_GetBlockHashReturnType
 
 export type GetBlockHashErrorType = viem_GetBlockHashErrorType
 
-/** https://wagmi.sh/core/api/actions/getBlockHash */
 export function getBlockHash<
   config extends Config,
   networkId extends

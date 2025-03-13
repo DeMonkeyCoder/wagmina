@@ -38,7 +38,6 @@ export type WatchBlockHashParameters<
 export type WatchBlockHashReturnType = viem_WatchBlockHashReturnType
 
 // TODO: wrap in vimina's `observe` to avoid duplicate invocations.
-/** https://wagmi.sh/core/api/actions/watchBlockHash */
 export function watchBlockHash<
   config extends Config,
   networkId extends

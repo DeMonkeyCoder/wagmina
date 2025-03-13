@@ -57,7 +57,6 @@ export type SignTransactionErrorType =
   // viem
   | viem_SignTransactionErrorType
 
-/** https://wagmi.sh/core/api/actions/signTransaction */
 export async function signTransaction<
   config extends Config,
   networkId extends config['chains'][number]['id'],

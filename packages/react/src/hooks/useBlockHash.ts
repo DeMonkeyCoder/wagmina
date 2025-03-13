@@ -57,7 +57,6 @@ export type UseBlockHashParameters<
 export type UseBlockHashReturnType<selectData = GetBlockHashData> =
   UseQueryReturnType<selectData, GetBlockHashErrorType>
 
-/** https://wagmi.sh/react/api/hooks/useBlockHash */
 export function useBlockHash<
   config extends Config = ResolvedRegister['config'],
   networkId extends

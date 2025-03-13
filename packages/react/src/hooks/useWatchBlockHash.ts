@@ -25,7 +25,6 @@ export type UseWatchBlockHashParameters<
 
 export type UseWatchBlockHashReturnType = void
 
-/** https://wagmi.sh/react/api/hooks/useWatchBlockHash */
 export function useWatchBlockHash<
   config extends Config = ResolvedRegister['config'],
   networkId extends

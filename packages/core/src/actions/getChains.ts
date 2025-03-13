@@ -9,7 +9,6 @@ export type GetChainsReturnType<config extends Config = Config> = readonly [
 
 let previousChains: readonly Chain[] = []
 
-/** https://wagmi.sh/core/api/actions/getChains */
 export function getChains<config extends Config>(
   config: config,
 ): GetChainsReturnType<config> {

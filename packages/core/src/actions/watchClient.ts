@@ -14,7 +14,6 @@ export type WatchClientParameters<
 
 export type WatchClientReturnType = () => void
 
-/** https://wagmi.sh/core/api/actions/watchClient */
 export function watchClient<
   config extends Config,
   networkId extends config['chains'][number]['id'],

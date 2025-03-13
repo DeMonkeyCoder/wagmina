@@ -53,7 +53,6 @@ export type UseSignZkappTransactionReturnType<
   }
 >
 
-/** https://wagmi.sh/react/api/hooks/useSignTransaction */
 export function useSignZkappTransaction<
   config extends Config = ResolvedRegister['config'],
   context = unknown,

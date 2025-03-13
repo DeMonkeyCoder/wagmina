@@ -56,7 +56,6 @@ export type GetAccountReturnType<
       status: 'disconnected'
     }
 
-/** https://wagmi.sh/core/api/actions/getAccount */
 export function getAccount<config extends Config>(
   config: config,
 ): GetAccountReturnType<config> {

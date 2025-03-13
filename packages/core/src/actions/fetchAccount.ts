@@ -30,7 +30,6 @@ export type FetchAccountErrorType = viem_FetchAccountErrorType
 
 export type FetchAccountReturnType = viem_FetchAccountReturnType
 
-/** https://wagmi.sh/core/api/actions/fetchAccount */
 export async function fetchAccount<
   config extends Config,
   networkId extends config['chains'][number]['id'],

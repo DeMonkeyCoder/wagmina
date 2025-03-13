@@ -53,7 +53,6 @@ export type UseSendTransactionReturnType<
   }
 >
 
-/** https://wagmi.sh/react/api/hooks/useSendTransaction */
 export function useSendTransaction<
   config extends Config = ResolvedRegister['config'],
   context = unknown,

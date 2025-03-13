@@ -30,7 +30,6 @@ export type UsePublicClientReturnType<
     | undefined,
 > = GetPublicClientReturnType<config, networkId>
 
-/** https://wagmi.sh/react/api/hooks/usePublicClient */
 export function usePublicClient<
   config extends Config = ResolvedRegister['config'],
   networkId extends config['chains'][number]['id'] | string | undefined =

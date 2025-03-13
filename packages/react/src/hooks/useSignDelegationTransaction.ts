@@ -56,7 +56,6 @@ export type UseSignDelegationTransactionReturnType<
   }
 >
 
-/** https://wagmi.sh/react/api/hooks/useSignTransaction */
 export function useSignDelegationTransaction<
   config extends Config = ResolvedRegister['config'],
   context = unknown,

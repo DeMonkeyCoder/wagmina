@@ -32,7 +32,6 @@ export type SendSignedTransactionErrorType =
   // viem
   | viem_SendSignedTransactionErrorType
 
-/** https://wagmi.sh/core/api/actions/sendSignedTransaction */
 export async function sendSignedTransaction<
   config extends Config,
   networkId extends config['chains'][number]['id'],

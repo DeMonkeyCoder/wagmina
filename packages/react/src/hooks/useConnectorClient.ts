@@ -57,7 +57,6 @@ export type UseConnectorClientReturnType<
   selectData = GetConnectorClientData<config, networkId>,
 > = UseQueryReturnType<selectData, GetConnectorClientErrorType>
 
-/** https://wagmi.sh/react/api/hooks/useConnectorClient */
 export function useConnectorClient<
   config extends Config = ResolvedRegister['config'],
   networkId extends

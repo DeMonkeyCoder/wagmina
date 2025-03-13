@@ -56,7 +56,6 @@ export type GetConnectorClientErrorType =
   | BaseErrorType
   | ErrorType
 
-/** https://wagmi.sh/core/api/actions/getConnectorClient */
 export async function getConnectorClient<
   config extends Config,
   networkId extends config['chains'][number]['id'],

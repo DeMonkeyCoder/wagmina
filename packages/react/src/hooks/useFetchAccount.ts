@@ -41,7 +41,6 @@ export type UseFetchAccountParameters<
 export type UseFetchAccountReturnType<selectData = FetchAccountData> =
   UseQueryReturnType<selectData, FetchAccountErrorType>
 
-/** https://wagmi.sh/react/api/hooks/useFetchAccount */
 export function useFetchAccount<
   config extends Config = ResolvedRegister['config'],
   networkId extends
