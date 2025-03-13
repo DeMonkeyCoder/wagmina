@@ -127,7 +127,7 @@ export function mock(parameters: MockParameters) {
       const url = chain.rpcUrls.default.http[0]!
 
       const request: JSAPIStandardRequestFn = async ({ method, params }) => {
-        // eth methods
+        // mina methods
         if (method === 'mina_networkId') return connectedNetworkId
         if (method === 'mina_requestAccounts') return parameters.accounts
         if (method === 'mina_signTypedData_v4')
