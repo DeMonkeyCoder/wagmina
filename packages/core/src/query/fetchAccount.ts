@@ -1,4 +1,3 @@
-import type { SelectChains } from '@/lib/connect/core/types/chain'
 import type { QueryOptions } from '@tanstack/query-core'
 import type { GetChainParameter } from 'vimina'
 import {
@@ -8,6 +7,7 @@ import {
   fetchAccount,
 } from '../actions/fetchAccount.js'
 import type { Config } from '../createConfig.js'
+import type { SelectChains } from '../types/chain.js'
 import type { ScopeKeyParameter } from '../types/properties.js'
 import type { Compute, PartialBy } from '../types/utils.js'
 import { filterQueryOptions } from './utils.js'

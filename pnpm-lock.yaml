@@ -67,16 +67,16 @@ importers:
     dependencies:
       '@mina-js/connect':
         specifier: https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a
-        version: https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a(typescript@5.5.2)
+        version: https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a
       eventemitter3:
         specifier: 5.0.1
         version: 5.0.1
       mipd:
         specifier: 0.0.7
-        version: 0.0.7(typescript@5.5.2)
+        version: 0.0.7
       zustand:
         specifier: 4.4.1
-        version: 4.4.1(@types/react@18.3.1)(react@18.3.1)
+        version: 4.4.1
     devDependencies:
       '@tanstack/query-core':
         specifier: '>=5.45.0'
@@ -3927,9 +3927,9 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@mina-js/accounts@https://pkg.pr.new/palladians/mina-js/@mina-js/accounts@d652e7a(typescript@5.5.2)':
+  '@mina-js/accounts@https://pkg.pr.new/palladians/mina-js/@mina-js/accounts@d652e7a':
     dependencies:
-      '@mina-js/providers': https://pkg.pr.new/palladians/mina-js/@mina-js/providers@d652e7a(typescript@5.5.2)
+      '@mina-js/providers': https://pkg.pr.new/palladians/mina-js/@mina-js/providers@d652e7a
       '@noble/ciphers': 0.6.0
       '@noble/curves': 1.4.2
       '@noble/hashes': 1.4.0
@@ -3937,28 +3937,28 @@ snapshots:
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.3.0
       mina-signer: 3.0.7
-      typescript: 5.5.2
       zod: 3.23.8
 
-  '@mina-js/connect@https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a(typescript@5.5.2)':
+  '@mina-js/connect@https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a':
     dependencies:
-      '@mina-js/accounts': https://pkg.pr.new/palladians/mina-js/@mina-js/accounts@d652e7a(typescript@5.5.2)
-      '@mina-js/klesia-sdk': https://pkg.pr.new/palladians/mina-js/@mina-js/klesia-sdk@d652e7a(typescript@5.5.2)
-      '@mina-js/providers': https://pkg.pr.new/palladians/mina-js/@mina-js/providers@d652e7a(typescript@5.5.2)
-      '@mina-js/utils': https://pkg.pr.new/palladians/mina-js/@mina-js/utils@d652e7a(typescript@5.5.2)
+      '@mina-js/accounts': https://pkg.pr.new/palladians/mina-js/@mina-js/accounts@d652e7a
+      '@mina-js/klesia-sdk': https://pkg.pr.new/palladians/mina-js/@mina-js/klesia-sdk@d652e7a
+      '@mina-js/providers': https://pkg.pr.new/palladians/mina-js/@mina-js/providers@d652e7a
+      '@mina-js/utils': https://pkg.pr.new/palladians/mina-js/@mina-js/utils@d652e7a
       ts-pattern: 5.6.2
-      typescript: 5.5.2
       zod: 3.23.8
 
-  '@mina-js/klesia-sdk@https://pkg.pr.new/palladians/mina-js/@mina-js/klesia-sdk@d652e7a(typescript@5.5.2)':
+  '@mina-js/klesia-sdk@https://pkg.pr.new/palladians/mina-js/@mina-js/klesia-sdk@d652e7a':
     dependencies:
       micro-ftch: 0.4.2
       ts-pattern: 5.6.2
-      typescript: 5.5.2
 
-  '@mina-js/providers@https://pkg.pr.new/palladians/mina-js/@mina-js/providers@d652e7a(typescript@5.5.2)':
+  '@mina-js/providers@https://pkg.pr.new/palladians/mina-js/@mina-js/providers@d652e7a': {}
+
+  '@mina-js/utils@https://pkg.pr.new/palladians/mina-js/@mina-js/utils@d652e7a':
     dependencies:
-      typescript: 5.5.2
+      mina-signer: 3.0.7
+      superjson: 2.2.1
 
   '@mina-js/utils@https://pkg.pr.new/palladians/mina-js/@mina-js/utils@d652e7a(typescript@5.5.2)':
     dependencies:
@@ -5532,9 +5532,7 @@ snapshots:
 
   minipass@7.1.0: {}
 
-  mipd@0.0.7(typescript@5.5.2):
-    optionalDependencies:
-      typescript: 5.5.2
+  mipd@0.0.7: {}
 
   mixme@0.5.9: {}
 
@@ -6293,6 +6291,8 @@ snapshots:
       escalade: 3.1.2
       picocolors: 1.0.0
 
+  use-sync-external-store@1.2.0: {}
+
   use-sync-external-store@1.2.0(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -6571,9 +6571,6 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zustand@4.4.1(@types/react@18.3.1)(react@18.3.1):
+  zustand@4.4.1:
     dependencies:
-      use-sync-external-store: 1.2.0(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.1
-      react: 18.3.1
+      use-sync-external-store: 1.2.0

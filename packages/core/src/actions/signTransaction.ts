@@ -9,7 +9,6 @@ import type {
 } from 'vimina'
 import { signTransaction as viem_signTransaction } from 'vimina/actions'
 
-import type { UInt32 } from 'o1js/dist/web/bindings/mina-transaction/transaction-leaves-json'
 import type { Config } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
 import type { SelectChains } from '../types/chain.js'
@@ -93,7 +92,7 @@ export async function signTransaction<
       ? account
       : account.address
     : (await getAccount(config)).address
-  const nonce: UInt32 = String(
+  const nonce = String(
     (txParameters.type === 'zkapp'
       ? txParameters.feePayer?.nonce
       : txParameters.nonce) ??

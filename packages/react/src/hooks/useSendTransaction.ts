@@ -64,7 +64,10 @@ export function useSendTransaction<
 
   const config = useConfig(parameters)
 
-  const mutationOptions = sendTransactionMutationOptions(config)
+  const mutationOptions = sendTransactionMutationOptions(
+    config,
+  ) as UseSendTransactionParameters<config, context>
+
   const { mutate, mutateAsync, ...result } = useMutation({
     ...mutation,
     ...mutationOptions,

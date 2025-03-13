@@ -1,5 +1,4 @@
 import {
-  type AddMinaChainParameter,
   type Address,
   type JSAPIStandardProvider,
   type ProviderConnectInfo,
@@ -239,7 +238,7 @@ export function injected(parameters: InjectedParameters = {}) {
                   ? 'mina:devnet'
                   : (arg as any).networkID
             }
-            chainChanged?.(newNetworkId.split(':')[1])
+            chainChanged?.(newNetworkId.split(':')[1]!)
           })
         }
         if (!disconnect) {
@@ -344,7 +343,7 @@ export function injected(parameters: InjectedParameters = {}) {
       }
       return (await provider.request({ method: 'mina_networkId' })).split(
         ':',
-      )[1]
+      )[1]!
     },
     async getProvider() {
       if (typeof window === 'undefined') return undefined
@@ -437,7 +436,7 @@ export function injected(parameters: InjectedParameters = {}) {
         return false
       }
     },
-    async switchChain({ addMinaChainParameter, networkId }) {
+    async switchChain({ networkId }) {
       const provider = await this.getProvider()
       if (!provider) throw new ProviderNotFoundError()
 
@@ -493,32 +492,6 @@ export function injected(parameters: InjectedParameters = {}) {
             ?.data?.originalError?.code === 20004
         ) {
           try {
-            const { default: blockExplorer, ...blockExplorers } =
-              chain.blockExplorers ?? {}
-            let blockExplorerUrls: string[] | undefined
-            if (addMinaChainParameter?.blockExplorerUrls)
-              blockExplorerUrls = addMinaChainParameter.blockExplorerUrls
-            else if (blockExplorer)
-              blockExplorerUrls = [
-                blockExplorer.url,
-                ...Object.values(blockExplorers).map((x) => x.url),
-              ]
-
-            let rpcUrls: readonly string[]
-            if (addMinaChainParameter?.rpcUrls?.length)
-              rpcUrls = addMinaChainParameter.rpcUrls
-            else rpcUrls = [chain.rpcUrls.default?.http[0] ?? '']
-
-            const _addEthereumChain = {
-              blockExplorerUrls,
-              networkId,
-              chainName: addMinaChainParameter?.chainName ?? chain.name,
-              iconUrls: addMinaChainParameter?.iconUrls,
-              nativeCurrency:
-                addMinaChainParameter?.nativeCurrency ?? chain.nativeCurrency,
-              rpcUrls,
-            } satisfies AddMinaChainParameter
-
             // @ts-ignore
             await provider.request({
               // @ts-ignore
@@ -596,7 +569,7 @@ export function injected(parameters: InjectedParameters = {}) {
                   ? 'mina:devnet'
                   : (arg as any).networkID
             }
-            chainChanged?.(newNetworkId.split(':')[1])
+            chainChanged?.(newNetworkId.split(':')[1]!)
           })
         }
         if (!disconnect) {

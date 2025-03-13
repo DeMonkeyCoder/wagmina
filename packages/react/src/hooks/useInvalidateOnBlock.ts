@@ -1,6 +1,6 @@
-import { useWatchBlockHash } from '@/lib/connect/react/hooks/useWatchBlockHash'
 import { type QueryKey, useQueryClient } from '@tanstack/react-query'
 import * as React from 'react'
+import { useWatchBlockHash } from './useWatchBlockHash.js'
 
 export function useInvalidateOnBlock({
   networkId,

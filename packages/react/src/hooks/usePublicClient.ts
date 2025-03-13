@@ -9,7 +9,7 @@ import {
   watchPublicClient,
 } from '@wagmi/core'
 import type { Compute } from '@wagmi/core/internal'
-import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector'
+import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector.js'
 
 import type { ConfigParameter } from '../types/properties.js'
 import { useConfig } from './useConfig.js'

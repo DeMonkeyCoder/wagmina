@@ -14,10 +14,10 @@ import {
   getTransactionCountQueryOptions,
 } from '@wagmi/core/query'
 
-import { useInvalidateOnBlock } from '@/lib/connect/react/hooks/useInvalidateOnBlock'
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
 import { type UseQueryReturnType, useQuery } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
+import { useInvalidateOnBlock } from './useInvalidateOnBlock.js'
 import { useNetworkId } from './useNetworkId.js'
 
 export type UseTransactionCountParameters<
