@@ -35,59 +35,6 @@ export type InjectedParameters = {
 // Regex of wallets/providers that can accurately simulate contract calls & display contract revert reasons.
 const supportsSimulationIdRegex = /(rabby|trustwallet)/
 
-const targetMap = {
-  coinbaseWallet: {
-    id: 'coinbaseWallet',
-    name: 'Coinbase Wallet',
-    provider(window) {
-      if (window?.coinbaseWalletExtension) return window.coinbaseWalletExtension
-      return findProvider(window, 'isCoinbaseWallet')
-    },
-  },
-  metaMask: {
-    id: 'metaMask',
-    name: 'MetaMask',
-    provider(window) {
-      return findProvider(window, (provider) => {
-        if (!provider.isMetaMask) return false
-        // Brave tries to make itself look like MetaMask
-        // Could also try RPC `web3_clientVersion` if following is unreliable
-        if (provider.isBraveWallet && !provider._events && !provider._state)
-          return false
-        // Other wallets that try to look like MetaMask
-        const flags: WalletProviderFlags[] = [
-          'isApexWallet',
-          'isAvalanche',
-          'isBitKeep',
-          'isBlockWallet',
-          'isKuCoinWallet',
-          'isMathWallet',
-          'isOkxWallet',
-          'isOKExWallet',
-          'isOneInchIOSWallet',
-          'isOneInchAndroidWallet',
-          'isOpera',
-          'isPortal',
-          'isRabby',
-          'isTokenPocket',
-          'isTokenary',
-          'isZerion',
-        ]
-        for (const flag of flags) if (provider[flag]) return false
-        return true
-      })
-    },
-  },
-  phantom: {
-    id: 'phantom',
-    name: 'Phantom',
-    provider(window) {
-      if (window?.phantom?.ethereum) return window.phantom?.ethereum
-      return findProvider(window, 'isPhantom')
-    },
-  },
-} as const satisfies TargetMap
-
 injected.type = 'injected' as const
 
 export function injected(parameters: InjectedParameters = {}) {
@@ -114,20 +61,11 @@ export function injected(parameters: InjectedParameters = {}) {
       return target
     }
 
-    if (typeof target === 'string')
-      return {
-        ...(targetMap[target as keyof typeof targetMap] ?? {
-          id: target,
-          name: `${target[0]!.toUpperCase()}${target.slice(1)}`,
-          provider: `is${target[0]!.toUpperCase()}${target.slice(1)}`,
-        }),
-      }
-
     return {
       id: 'injected',
       name: 'Injected',
       provider(window) {
-        return window?.ethereum
+        return window?.mina
       },
     }
   }
@@ -389,14 +327,9 @@ export function injected(parameters: InjectedParameters = {}) {
             unstable_shimAsyncInject !== false
           ) {
             // If no provider is found, check for async injection
-            // https://github.com/wevm/references/issues/167
-            // https://github.com/MetaMask/detect-provider
-            const handleEthereum = async () => {
+            const handleMina = async () => {
               if (typeof window !== 'undefined')
-                window.removeEventListener(
-                  'ethereum#initialized',
-                  handleEthereum,
-                )
+                window.removeEventListener('mina#initialized', handleMina)
               const provider = await this.getProvider()
               return !!provider
             }
@@ -409,15 +342,15 @@ export function injected(parameters: InjectedParameters = {}) {
                 ? [
                     new Promise<boolean>((resolve) =>
                       window.addEventListener(
-                        'ethereum#initialized',
-                        () => resolve(handleEthereum()),
+                        'mina#initialized',
+                        () => resolve(handleMina()),
                         { once: true },
                       ),
                     ),
                   ]
                 : []),
               new Promise<boolean>((resolve) =>
-                setTimeout(() => resolve(handleEthereum()), timeout),
+                setTimeout(() => resolve(handleMina()), timeout),
               ),
             ])
             if (res) return true
@@ -626,8 +559,6 @@ type TargetId = Compute<WalletProviderFlags> extends `is${infer name}`
     : never
   : never
 
-type TargetMap = { [_ in TargetId]?: Target | undefined }
-
 /** @deprecated */
 type WalletProviderFlags =
   | 'isAuro'
@@ -691,9 +622,7 @@ type WalletProvider = Compute<
 >
 
 type Window = {
-  coinbaseWalletExtension?: WalletProvider | undefined
-  ethereum?: WalletProvider | undefined
-  phantom?: { ethereum: WalletProvider } | undefined
+  mina?: WalletProvider | undefined
 }
 
 function findProvider(
@@ -706,9 +635,9 @@ function findProvider(
     return true
   }
 
-  const ethereum = (window as Window).ethereum
-  if (ethereum?.providers)
-    return ethereum.providers.find((provider) => isProvider(provider))
-  if (ethereum && isProvider(ethereum)) return ethereum
+  const mina = (window as Window).mina
+  if (mina?.providers)
+    return mina.providers.find((provider) => isProvider(provider))
+  if (mina && isProvider(mina)) return mina
   return undefined
 }

@@ -55,8 +55,7 @@
     "sherif": "^0.8.4",
     "simple-git-hooks": "^2.11.1",
     "typescript": "5.5.2",
-    "vimina": "https://pkg.pr.new/DeMonkeyCoder/vimina@414040a",
-    "vitest": "^1.6.0"
+    "vimina": "https://pkg.pr.new/DeMonkeyCoder/vimina@414040a"
   },
   "packageManager": "pnpm@9.4.0",
   "pnpm": {
@@ -76,20 +75,30 @@
     "pre-commit": "pnpm lint"
   },
   "knip": {
-    "ignoreBinaries": ["only-allow"],
-    "ignoreWorkspaces": ["playgrounds/**"],
+    "ignoreBinaries": [
+      "only-allow"
+    ],
+    "ignoreWorkspaces": [
+      "playgrounds/**"
+    ],
     "workspaces": {
       ".": {
         "project": "scripts/*.ts"
       },
       "packages/core": {
         "entry": "src/exports/{actions,chains,index,internal,query}.ts!",
-        "ignore": ["test/setup.ts"],
-        "ignoreDependencies": ["@tanstack/query-core"]
+        "ignore": [
+          "test/setup.ts"
+        ],
+        "ignoreDependencies": [
+          "@tanstack/query-core"
+        ]
       },
       "packages/react": {
         "entry": "src/exports/{actions,chains,index,query}.ts!",
-        "ignore": ["test/setup.ts"]
+        "ignore": [
+          "test/setup.ts"
+        ]
       }
     }
   }
