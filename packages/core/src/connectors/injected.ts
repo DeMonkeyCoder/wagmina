@@ -26,7 +26,7 @@ export type InjectedParameters = {
    */
   shimDisconnect?: boolean | undefined
   /**
-   * [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) Ethereum Provider to target
+   * [JavaScriptAPIStandard] Mina Provider to target
    */
   target?: TargetId | Target | (() => Target | undefined) | undefined
   unstable_shimAsyncInject?: boolean | number | undefined
@@ -217,8 +217,7 @@ export function injected(parameters: InjectedParameters = {}) {
           accounts = requestedAccounts.map((x) => getAddress(x))
         }
 
-        // Manage EIP-1193 event listeners
-        // https://eips.ethereum.org/EIPS/eip-1193#events
+        // Manage [JavaScriptAPIStandard] event listeners
         if (connect) {
           provider.removeListener('connect', connect)
           connect = undefined
@@ -280,7 +279,7 @@ export function injected(parameters: InjectedParameters = {}) {
       const provider = await this.getProvider()
       if (!provider) throw new ProviderNotFoundError()
 
-      // Manage EIP-1193 event listeners
+      // Manage [JavaScriptAPIStandard] event listeners
       if (chainChanged) {
         provider.removeListener('chainChanged', chainChanged)
         chainChanged = undefined
@@ -356,8 +355,7 @@ export function injected(parameters: InjectedParameters = {}) {
         provider = findProvider(window, target.provider)
       else provider = target.provider
 
-      // Some wallets do not conform to EIP-1193 (e.g. Trust Wallet)
-      // https://github.com/wevm/wagmi/issues/3526#issuecomment-1912683002
+      // Some wallets do not conform to [JavaScriptAPIStandard]
       if (provider && !provider.removeListener) {
         // Try using `off` handler if it exists, otherwise noop
         if ('off' in provider && typeof provider.off === 'function')
@@ -547,7 +545,7 @@ export function injected(parameters: InjectedParameters = {}) {
       const networkId = connectInfo.networkId
       config.emitter.emit('connect', { accounts, networkId })
 
-      // Manage EIP-1193 event listeners
+      // Manage [JavaScriptAPIStandard] event listeners
       const provider = await this.getProvider()
       if (provider) {
         if (connect) {
@@ -592,7 +590,7 @@ export function injected(parameters: InjectedParameters = {}) {
       // actually disconnected and we don't need to simulate it.
       config.emitter.emit('disconnect')
 
-      // Manage EIP-1193 event listeners
+      // Manage [JavaScriptAPIStandard] event listeners
       if (provider) {
         if (chainChanged) {
           provider.removeListener('chainChanged', chainChanged)

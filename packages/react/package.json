@@ -1,6 +1,6 @@
 {
   "name": "wagmi",
-  "description": "React Hooks for Ethereum",
+  "description": "React Hooks for Mina",
   "version": "2.12.2",
   "license": "MIT",
   "repository": {
@@ -83,16 +83,5 @@
     "react": ">=18.3.1",
     "react-dom": ">=18.3.1"
   },
-  "contributors": ["awkweb.eth <t@wevm.dev>", "jxom.eth <j@wevm.dev>"],
-  "funding": "https://github.com/sponsors/wevm",
-  "keywords": [
-    "wagmi",
-    "react",
-    "hooks",
-    "eth",
-    "ethereum",
-    "dapps",
-    "wallet",
-    "web3"
-  ]
+  "keywords": ["wagmi", "react", "hooks", "mina", "dapps", "wallet", "web3"]
 }

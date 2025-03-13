@@ -593,14 +593,15 @@ export type Connector = ReturnType<CreateConnectorFn> & {
 export type Transport<
   type extends string = string,
   rpcAttributes = Record<string, any>,
-  eip1193RequestFn extends JSAPIStandardRequestFn = JSAPIStandardRequestFn,
+  jsApiStandardRequestFn extends
+    JSAPIStandardRequestFn = JSAPIStandardRequestFn,
 > = (
   params: Parameters<
-    viem_Transport<type, rpcAttributes, eip1193RequestFn>
+    viem_Transport<type, rpcAttributes, jsApiStandardRequestFn>
   >[0] & {
     connectors?: StoreApi<Connector[]> | undefined
   },
-) => ReturnType<viem_Transport<type, rpcAttributes, eip1193RequestFn>>
+) => ReturnType<viem_Transport<type, rpcAttributes, jsApiStandardRequestFn>>
 
 type ClientConfig = LooseOmit<
   viem_ClientConfig,

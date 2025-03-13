@@ -1,6 +1,6 @@
 {
   "name": "@wagmi/core",
-  "description": "VanillaJS library for Ethereum",
+  "description": "VanillaJS library for Mina",
   "version": "2.13.1",
   "license": "MIT",
   "repository": {
@@ -23,7 +23,6 @@
     "!src/**/*.test-d.ts",
     "/actions",
     "/chains",
-    "/experimental",
     "/internal",
     "/query"
   ],
@@ -45,14 +44,6 @@
       "types": "./dist/types/exports/chains.d.ts",
       "default": "./dist/esm/exports/chains.js"
     },
-    "./codegen": {
-      "types": "./dist/types/exports/codegen.d.ts",
-      "default": "./dist/esm/exports/codegen.js"
-    },
-    "./experimental": {
-      "types": "./dist/types/exports/experimental.d.ts",
-      "default": "./dist/esm/exports/experimental.js"
-    },
     "./internal": {
       "types": "./dist/types/exports/internal.d.ts",
       "default": "./dist/esm/exports/internal.js"
@@ -65,24 +56,11 @@
   },
   "typesVersions": {
     "*": {
-      "actions": [
-        "./dist/types/exports/actions.d.ts"
-      ],
-      "chains": [
-        "./dist/types/exports/chains.d.ts"
-      ],
-      "codegen": [
-        "./dist/types/exports/codegen.d.ts"
-      ],
-      "experimental": [
-        "./dist/types/exports/experimental.d.ts"
-      ],
-      "internal": [
-        "./dist/types/exports/internal.d.ts"
-      ],
-      "query": [
-        "./dist/types/exports/query.d.ts"
-      ]
+      "actions": ["./dist/types/exports/actions.d.ts"],
+      "chains": ["./dist/types/exports/chains.d.ts"],
+      "codegen": ["./dist/types/exports/codegen.d.ts"],
+      "internal": ["./dist/types/exports/internal.d.ts"],
+      "query": ["./dist/types/exports/query.d.ts"]
     }
   },
   "peerDependencies": {
@@ -101,23 +79,10 @@
   "dependencies": {
     "@mina-js/connect": "https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a",
     "eventemitter3": "5.0.1",
-    "mipd": "0.0.7",
     "zustand": "4.4.1"
   },
   "devDependencies": {
     "@tanstack/query-core": "^5.49.1"
   },
-  "contributors": [
-    "awkweb.eth <t@wevm.dev>",
-    "jxom.eth <j@wevm.dev>"
-  ],
-  "funding": "https://github.com/sponsors/wevm",
-  "keywords": [
-    "wagmi",
-    "eth",
-    "ethereum",
-    "dapps",
-    "wallet",
-    "web3"
-  ]
+  "keywords": ["wagmi", "mina", "dapps", "wallet", "web3"]
 }

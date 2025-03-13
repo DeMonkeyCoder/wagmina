@@ -76,30 +76,20 @@
     "pre-commit": "pnpm lint"
   },
   "knip": {
-    "ignoreBinaries": [
-      "only-allow"
-    ],
-    "ignoreWorkspaces": [
-      "playgrounds/**"
-    ],
+    "ignoreBinaries": ["only-allow"],
+    "ignoreWorkspaces": ["playgrounds/**"],
     "workspaces": {
       ".": {
         "project": "scripts/*.ts"
       },
       "packages/core": {
-        "entry": "src/exports/{actions,chains,codegen,experimental,index,internal,query}.ts!",
-        "ignore": [
-          "test/setup.ts"
-        ],
-        "ignoreDependencies": [
-          "@tanstack/query-core"
-        ]
+        "entry": "src/exports/{actions,chains,index,internal,query}.ts!",
+        "ignore": ["test/setup.ts"],
+        "ignoreDependencies": ["@tanstack/query-core"]
       },
       "packages/react": {
-        "entry": "src/exports/{actions,chains,codegen,connectors,experimental,index,query}.ts!",
-        "ignore": [
-          "test/setup.ts"
-        ]
+        "entry": "src/exports/{actions,chains,index,query}.ts!",
+        "ignore": ["test/setup.ts"]
       }
     }
   }
