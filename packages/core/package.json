@@ -1,7 +1,7 @@
 {
   "name": "@wagmi/core",
   "description": "VanillaJS library for Mina",
-  "version": "2.13.1",
+  "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",

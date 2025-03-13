@@ -44,8 +44,6 @@
     "@changesets/changelog-github": "0.4.6",
     "@changesets/cli": "^2.27.1",
     "@types/bun": "^1.1.1",
-    "@vitest/coverage-v8": "^1.6.0",
-    "@vitest/ui": "^1.6.0",
     "bun": "^1.1.7",
     "glob": "^10.3.12",
     "happy-dom": "^12.2.1",
