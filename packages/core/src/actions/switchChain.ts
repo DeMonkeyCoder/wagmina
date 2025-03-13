@@ -1,7 +1,7 @@
 import type {
   AddMinaChainParameter,
   UserRejectedRequestErrorType,
-  SwitchChainErrorType as viem_SwitchChainErrorType,
+  SwitchChainErrorType as vimina_SwitchChainErrorType,
 } from 'vimina'
 
 import type { Config } from '../createConfig.js'
@@ -50,7 +50,7 @@ export type SwitchChainErrorType =
   | BaseErrorType
   | ErrorType
   // vimina
-  | viem_SwitchChainErrorType
+  | vimina_SwitchChainErrorType
 
 export async function switchChain<
   config extends Config,

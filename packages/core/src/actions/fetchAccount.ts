@@ -1,9 +1,9 @@
 import type { Chain } from 'vimina'
 import {
-  type FetchAccountErrorType as viem_FetchAccountErrorType,
-  type FetchAccountParameters as viem_FetchAccountParameters,
-  type FetchAccountReturnType as viem_FetchAccountReturnType,
-  fetchAccount as viem_fetchAccount,
+  type FetchAccountErrorType as vimina_FetchAccountErrorType,
+  type FetchAccountParameters as vimina_FetchAccountParameters,
+  type FetchAccountReturnType as vimina_FetchAccountReturnType,
+  fetchAccount as vimina_fetchAccount,
 } from 'vimina/actions'
 
 import type { Config } from '../createConfig.js'
@@ -20,15 +20,15 @@ export type FetchAccountParameters<
 > = Compute<
   {
     [key in keyof chains]: Compute<
-      viem_FetchAccountParameters<chains[key], chains[key]> &
+      vimina_FetchAccountParameters<chains[key], chains[key]> &
         NetworkIdParameter<config, networkId>
     >
   }[number]
 >
 
-export type FetchAccountErrorType = viem_FetchAccountErrorType
+export type FetchAccountErrorType = vimina_FetchAccountErrorType
 
-export type FetchAccountReturnType = viem_FetchAccountReturnType
+export type FetchAccountReturnType = vimina_FetchAccountReturnType
 
 export async function fetchAccount<
   config extends Config,
@@ -40,7 +40,7 @@ export async function fetchAccount<
   const { address, networkId } = parameters
 
   const client = config.getClient({ networkId })
-  const action = getAction(client, viem_fetchAccount, 'fetchAccount')
+  const action = getAction(client, vimina_fetchAccount, 'fetchAccount')
 
   const chain = config.chains.find((x) => x.id === networkId) ?? client.chain!
   return action({

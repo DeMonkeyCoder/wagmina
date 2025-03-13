@@ -36,7 +36,7 @@
     "test:ui": "vitest --ui",
     "typecheck": "pnpm run --r --parallel typecheck && tsc --noEmit",
     "version:update": "bun scripts/updateVersion.ts",
-    "version:update:viem": "bun scripts/updateViemVersion.ts"
+    "version:update:vimina": "bun scripts/updateViminaVersion.ts"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.3",
@@ -73,30 +73,20 @@
     "pre-commit": "pnpm lint"
   },
   "knip": {
-    "ignoreBinaries": [
-      "only-allow"
-    ],
-    "ignoreWorkspaces": [
-      "playgrounds/**"
-    ],
+    "ignoreBinaries": ["only-allow"],
+    "ignoreWorkspaces": ["playgrounds/**"],
     "workspaces": {
       ".": {
         "project": "scripts/*.ts"
       },
       "packages/core": {
         "entry": "src/exports/{actions,chains,index,internal,query}.ts!",
-        "ignore": [
-          "test/setup.ts"
-        ],
-        "ignoreDependencies": [
-          "@tanstack/query-core"
-        ]
+        "ignore": ["test/setup.ts"],
+        "ignoreDependencies": ["@tanstack/query-core"]
       },
       "packages/react": {
         "entry": "src/exports/{actions,chains,index,query}.ts!",
-        "ignore": [
-          "test/setup.ts"
-        ]
+        "ignore": ["test/setup.ts"]
       }
     }
   }

@@ -2,11 +2,11 @@ import type {
   Account,
   Chain,
   Client,
-  SendTransactionErrorType as viem_SendTransactionErrorType,
-  SendTransactionParameters as viem_SendTransactionParameters,
-  SendTransactionReturnType as viem_SendTransactionReturnType,
+  SendTransactionErrorType as vimina_SendTransactionErrorType,
+  SendTransactionParameters as vimina_SendTransactionParameters,
+  SendTransactionReturnType as vimina_SendTransactionReturnType,
 } from 'vimina'
-import { sendTransaction as viem_sendTransaction } from 'vimina/actions'
+import { sendTransaction as vimina_sendTransaction } from 'vimina/actions'
 
 import type { Config } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
@@ -31,14 +31,14 @@ export type SendTransactionParameters<
 > = Compute<
   {
     [key in keyof chains]: Compute<
-      viem_SendTransactionParameters<chains[key], Account, chains[key]> &
+      vimina_SendTransactionParameters<chains[key], Account, chains[key]> &
         NetworkIdParameter<config, networkId> &
         ConnectorParameter
     >
   }[number]
 >
 
-export type SendTransactionReturnType = viem_SendTransactionReturnType
+export type SendTransactionReturnType = vimina_SendTransactionReturnType
 
 export type SendTransactionErrorType =
   // getConnectorClient()
@@ -46,8 +46,8 @@ export type SendTransactionErrorType =
   // base
   | BaseErrorType
   | ErrorType
-  // viem
-  | viem_SendTransactionErrorType
+  // vimina
+  | vimina_SendTransactionErrorType
 
 export async function sendTransaction<
   config extends Config,
@@ -69,7 +69,7 @@ export async function sendTransaction<
     })
 
   // @ts-ignore
-  const action = getAction(client, viem_sendTransaction, 'sendTransaction')
+  const action = getAction(client, vimina_sendTransaction, 'sendTransaction')
   const hash = await action({
     ...(rest as any),
     ...(account ? { account } : {}),

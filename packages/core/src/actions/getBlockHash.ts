@@ -1,8 +1,8 @@
 import {
-  type GetBlockHashErrorType as viem_GetBlockHashErrorType,
-  type GetBlockHashParameters as viem_GetBlockHashParameters,
-  type GetBlockHashReturnType as viem_GetBlockHashReturnType,
-  getBlockHash as viem_getBlockHash,
+  type GetBlockHashErrorType as vimina_GetBlockHashErrorType,
+  type GetBlockHashParameters as vimina_GetBlockHashParameters,
+  type GetBlockHashReturnType as vimina_GetBlockHashReturnType,
+  getBlockHash as vimina_getBlockHash,
 } from 'vimina/actions'
 
 import type { Config } from '../createConfig.js'
@@ -14,11 +14,13 @@ export type GetBlockHashParameters<
   config extends Config = Config,
   networkId extends
     config['chains'][number]['id'] = config['chains'][number]['id'],
-> = Compute<viem_GetBlockHashParameters & NetworkIdParameter<config, networkId>>
+> = Compute<
+  vimina_GetBlockHashParameters & NetworkIdParameter<config, networkId>
+>
 
-export type GetBlockHashReturnType = viem_GetBlockHashReturnType
+export type GetBlockHashReturnType = vimina_GetBlockHashReturnType
 
-export type GetBlockHashErrorType = viem_GetBlockHashErrorType
+export type GetBlockHashErrorType = vimina_GetBlockHashErrorType
 
 export function getBlockHash<
   config extends Config,
@@ -30,6 +32,6 @@ export function getBlockHash<
 ): Promise<GetBlockHashReturnType> {
   const { networkId, ...rest } = parameters
   const client = config.getClient({ networkId })
-  const action = getAction(client, viem_getBlockHash, 'getBlockHash')
+  const action = getAction(client, vimina_getBlockHash, 'getBlockHash')
   return action(rest)
 }

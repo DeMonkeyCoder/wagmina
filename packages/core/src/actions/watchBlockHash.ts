@@ -1,7 +1,7 @@
 import {
-  type WatchBlockHashParameters as viem_WatchBlockHashParameters,
-  type WatchBlockHashReturnType as viem_WatchBlockHashReturnType,
-  watchBlockHash as viem_watchBlockHash,
+  type WatchBlockHashParameters as vimina_WatchBlockHashParameters,
+  type WatchBlockHashReturnType as vimina_WatchBlockHashReturnType,
+  watchBlockHash as vimina_watchBlockHash,
 } from 'vimina/actions'
 
 import type { Chain, Transport, WebSocketTransport } from 'vimina'
@@ -22,7 +22,7 @@ export type WatchBlockHashParameters<
   chains extends readonly Chain[] = SelectChains<config, networkId>,
 > = {
   [key in keyof chains]: UnionCompute<
-    viem_WatchBlockHashParameters<
+    vimina_WatchBlockHashParameters<
       config['_internal']['transports'][chains[key]['id']] extends infer transport extends
         Transport
         ? Transport extends transport
@@ -35,7 +35,7 @@ export type WatchBlockHashParameters<
   >
 }[number]
 
-export type WatchBlockHashReturnType = viem_WatchBlockHashReturnType
+export type WatchBlockHashReturnType = vimina_WatchBlockHashReturnType
 
 // TODO: wrap in vimina's `observe` to avoid duplicate invocations.
 export function watchBlockHash<
@@ -54,8 +54,8 @@ export function watchBlockHash<
     if (unwatch) unwatch()
 
     const client = config.getClient({ networkId })
-    const action = getAction(client, viem_watchBlockHash, 'watchBlockHash')
-    unwatch = action(rest as viem_WatchBlockHashParameters)
+    const action = getAction(client, vimina_watchBlockHash, 'watchBlockHash')
+    unwatch = action(rest as vimina_WatchBlockHashParameters)
     return unwatch
   }
 

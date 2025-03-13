@@ -9,8 +9,8 @@ import {
   type Client,
   type JSAPIStandardRequestFn,
   createClient,
-  type ClientConfig as viem_ClientConfig,
-  type Transport as viem_Transport,
+  type ClientConfig as vimina_ClientConfig,
+  type Transport as vimina_Transport,
 } from 'vimina'
 import { persist, subscribeWithSelector } from 'zustand/middleware'
 import { type Mutate, type StoreApi, createStore } from 'zustand/vanilla'
@@ -162,7 +162,7 @@ export function createConfig<
       const networkId = chain.id as chains[number]['id']
       const networkIds = chains.getState().map((x) => x.id)
       // Grab all properties off `rest` and resolve for use in `createClient`
-      const properties: Partial<viem_ClientConfig> = {}
+      const properties: Partial<vimina_ClientConfig> = {}
       const entries = Object.entries(rest) as [keyof typeof rest, any][]
 
       for (const [key, value] of entries) {
@@ -597,13 +597,13 @@ export type Transport<
     JSAPIStandardRequestFn = JSAPIStandardRequestFn,
 > = (
   params: Parameters<
-    viem_Transport<type, rpcAttributes, jsApiStandardRequestFn>
+    vimina_Transport<type, rpcAttributes, jsApiStandardRequestFn>
   >[0] & {
     connectors?: StoreApi<Connector[]> | undefined
   },
-) => ReturnType<viem_Transport<type, rpcAttributes, jsApiStandardRequestFn>>
+) => ReturnType<vimina_Transport<type, rpcAttributes, jsApiStandardRequestFn>>
 
 type ClientConfig = LooseOmit<
-  viem_ClientConfig,
+  vimina_ClientConfig,
   'account' | 'chain' | 'key' | 'name' | 'transport' | 'type'
 >

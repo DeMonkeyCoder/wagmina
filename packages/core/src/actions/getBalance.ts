@@ -1,8 +1,8 @@
 import type { Address } from 'vimina'
 import {
-  type GetBalanceErrorType as viem_GetBalanceErrorType,
-  type GetBalanceParameters as viem_GetBalanceParameters,
-  getBalance as viem_getBalance,
+  type GetBalanceErrorType as vimina_GetBalanceErrorType,
+  type GetBalanceParameters as vimina_GetBalanceParameters,
+  getBalance as vimina_getBalance,
 } from 'vimina/actions'
 
 import type { Config } from '../createConfig.js'
@@ -12,7 +12,7 @@ import { getAction } from '../utils/getAction.js'
 
 export type GetBalanceParameters<config extends Config = Config> = Compute<
   NetworkIdParameter<config> &
-    viem_GetBalanceParameters & {
+    vimina_GetBalanceParameters & {
       /** @deprecated */
       token?: Address | undefined
     }
@@ -24,7 +24,7 @@ export type GetBalanceReturnType = {
   value: bigint
 }
 
-export type GetBalanceErrorType = viem_GetBalanceErrorType
+export type GetBalanceErrorType = vimina_GetBalanceErrorType
 
 export async function getBalance<config extends Config>(
   config: config,
@@ -42,7 +42,7 @@ export async function getBalance<config extends Config>(
     throw new Error('not supported yet')
   }
   const client = config.getClient({ networkId })
-  const action = getAction(client, viem_getBalance, 'getBalance')
+  const action = getAction(client, vimina_getBalance, 'getBalance')
   const value = await action(
     blockNumber ? { address, blockNumber } : { address, blockTag },
   )

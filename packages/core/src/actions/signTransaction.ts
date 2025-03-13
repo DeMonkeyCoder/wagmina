@@ -3,11 +3,11 @@ import type {
   Chain,
   Client,
   TransactionType,
-  SignTransactionErrorType as viem_SignTransactionErrorType,
-  SignTransactionParameters as viem_SignTransactionParameters,
-  SignTransactionReturnType as viem_SignTransactionReturnType,
+  SignTransactionErrorType as vimina_SignTransactionErrorType,
+  SignTransactionParameters as vimina_SignTransactionParameters,
+  SignTransactionReturnType as vimina_SignTransactionReturnType,
 } from 'vimina'
-import { signTransaction as viem_signTransaction } from 'vimina/actions'
+import { signTransaction as vimina_signTransaction } from 'vimina/actions'
 
 import type { Config } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
@@ -34,7 +34,7 @@ export type SignTransactionParameters<
   chains extends readonly Chain[] = SelectChains<config, networkId>,
 > = {
   [key in keyof chains]: Compute<
-    viem_SignTransactionParameters<
+    vimina_SignTransactionParameters<
       transactionType,
       chains[key],
       Account,
@@ -46,7 +46,7 @@ export type SignTransactionParameters<
 }[number]
 
 export type SignTransactionReturnType<transactionType extends TransactionType> =
-  viem_SignTransactionReturnType<transactionType>
+  vimina_SignTransactionReturnType<transactionType>
 
 export type SignTransactionErrorType =
   // getConnectorClient()
@@ -54,8 +54,8 @@ export type SignTransactionErrorType =
   // base
   | BaseErrorType
   | ErrorType
-  // viem
-  | viem_SignTransactionErrorType
+  // vimina
+  | vimina_SignTransactionErrorType
 
 export async function signTransaction<
   config extends Config,
@@ -82,7 +82,7 @@ export async function signTransaction<
     })
 
   // @ts-ignore
-  const action = getAction(client, viem_signTransaction, 'signTransaction')
+  const action = getAction(client, vimina_signTransaction, 'signTransaction')
 
   // TODO: remove this nonce parameter injection after Pallad supports optional nonce
   const txParameters = { ...(rest as any) }
