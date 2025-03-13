@@ -105,7 +105,7 @@
     "zustand": "4.4.1"
   },
   "devDependencies": {
-    "@tanstack/query-core": ">=5.45.0"
+    "@tanstack/query-core": "^5.49.1"
   },
   "contributors": [
     "awkweb.eth <t@wevm.dev>",
