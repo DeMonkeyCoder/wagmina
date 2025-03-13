@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wevm/wagmi.git",
+    "url": "https://github.com/DeMonkeyCoder/wagmina.git",
     "directory": "packages/core"
   },
   "scripts": {

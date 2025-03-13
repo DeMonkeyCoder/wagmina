@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wevm/wagmi.git",
+    "url": "https://github.com/DeMonkeyCoder/wagmina.git",
     "directory": "packages/react"
   },
   "scripts": {
@@ -23,9 +23,6 @@
     "!src/**/*.test-d.ts",
     "/actions",
     "/chains",
-    "/codegen",
-    "/connectors",
-    "/experimental",
     "/query"
   ],
   "sideEffects": false,
