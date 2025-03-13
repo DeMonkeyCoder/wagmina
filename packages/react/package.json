@@ -60,7 +60,7 @@
     "@tanstack/react-query": ">=5.0.0",
     "react": ">=18",
     "typescript": ">=5.0.4",
-    "vimina": "https://pkg.pr.new/DeMonkeyCoder/vimina@414040a"
+    "vimina": ">=0.0.1"
   },
   "peerDependenciesMeta": {
     "typescript": {
