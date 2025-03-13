@@ -64,7 +64,7 @@ export function filterQueryOptions<type extends Record<string, unknown>>(
     _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError,
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // wagmi
+    // wagmina
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     config, connector, query,
     ...rest

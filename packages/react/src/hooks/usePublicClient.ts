@@ -7,8 +7,8 @@ import {
   type ResolvedRegister,
   getPublicClient,
   watchPublicClient,
-} from '@wagmi/core'
-import type { Compute } from '@wagmi/core/internal'
+} from '@wagmina/core'
+import type { Compute } from '@wagmina/core/internal'
 import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector.js'
 
 import type { ConfigParameter } from '../types/properties.js'

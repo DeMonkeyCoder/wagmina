@@ -53,7 +53,7 @@ export function createStorage<
 >(parameters: CreateStorageParameters): Compute<Storage<storageItemMap>> {
   const {
     deserialize = deserialize_,
-    key: prefix = 'wagmi',
+    key: prefix = 'wagmina',
     serialize = serialize_,
     storage = noopStorage,
   } = parameters

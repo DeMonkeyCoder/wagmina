@@ -6,15 +6,15 @@ import type {
   Connector,
   ResolvedRegister,
   SwitchAccountErrorType,
-} from '@wagmi/core'
-import type { Compute } from '@wagmi/core/internal'
+} from '@wagmina/core'
+import type { Compute } from '@wagmina/core/internal'
 import {
   type SwitchAccountData,
   type SwitchAccountMutate,
   type SwitchAccountMutateAsync,
   type SwitchAccountVariables,
   switchAccountMutationOptions,
-} from '@wagmi/core/query'
+} from '@wagmina/core/query'
 
 import type { ConfigParameter } from '../types/properties.js'
 import type {

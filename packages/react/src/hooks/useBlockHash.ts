@@ -5,19 +5,19 @@ import type {
   Config,
   GetBlockHashErrorType,
   ResolvedRegister,
-} from '@wagmi/core'
+} from '@wagmina/core'
 import type {
   Compute,
   UnionCompute,
   UnionStrictOmit,
-} from '@wagmi/core/internal'
+} from '@wagmina/core/internal'
 import {
   type GetBlockHashData,
   type GetBlockHashOptions,
   type GetBlockHashQueryFnData,
   type GetBlockHashQueryKey,
   getBlockHashQueryOptions,
-} from '@wagmi/core/query'
+} from '@wagmina/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
 import { type UseQueryReturnType, useQuery } from '../utils/query.js'

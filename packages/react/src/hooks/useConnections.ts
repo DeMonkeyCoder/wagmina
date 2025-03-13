@@ -4,7 +4,7 @@ import {
   type GetConnectionsReturnType,
   getConnections,
   watchConnections,
-} from '@wagmi/core'
+} from '@wagmina/core'
 import { useSyncExternalStore } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'

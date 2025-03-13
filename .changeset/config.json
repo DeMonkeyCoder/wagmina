@@ -9,7 +9,7 @@
   "commit": false,
   "ignore": [
     "*-register",
-    "@wagmi/test",
+    "@wagmina/test",
     "site",
     "next-app",
     "nuxt-app",

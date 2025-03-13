@@ -11,14 +11,14 @@ type BaseErrorOptions = Compute<
   }
 >
 
-export type BaseErrorType = BaseError & { name: 'WagmiCoreError' }
+export type BaseErrorType = BaseError & { name: 'WagminaCoreError' }
 export class BaseError extends Error {
   details: string
   docsPath?: string | undefined
   metaMessages?: string[] | undefined
   shortMessage: string
 
-  override name = 'WagmiCoreError'
+  override name = 'WagminaCoreError'
   get docsBaseUrl() {
     return ''
   }

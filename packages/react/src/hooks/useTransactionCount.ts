@@ -4,15 +4,15 @@ import type {
   Config,
   GetTransactionCountErrorType,
   ResolvedRegister,
-} from '@wagmi/core'
-import type { Compute } from '@wagmi/core/internal'
-import type { GetTransactionCountQueryFnData } from '@wagmi/core/query'
+} from '@wagmina/core'
+import type { Compute } from '@wagmina/core/internal'
+import type { GetTransactionCountQueryFnData } from '@wagmina/core/query'
 import {
   type GetTransactionCountData,
   type GetTransactionCountOptions,
   type GetTransactionCountQueryKey,
   getTransactionCountQueryOptions,
-} from '@wagmi/core/query'
+} from '@wagmina/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
 import { type UseQueryReturnType, useQuery } from '../utils/query.js'

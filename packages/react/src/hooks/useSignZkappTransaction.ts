@@ -5,15 +5,15 @@ import type {
   Config,
   ResolvedRegister,
   SignTransactionErrorType,
-} from '@wagmi/core'
-import type { Compute } from '@wagmi/core/internal'
+} from '@wagmina/core'
+import type { Compute } from '@wagmina/core/internal'
 import {
   type SignZkappTransactionData,
   type SignZkappTransactionMutate,
   type SignZkappTransactionMutateAsync,
   type SignZkappTransactionVariables,
   signZkappTransactionMutationOptions,
-} from '@wagmi/core/query'
+} from '@wagmina/core/query'
 
 import type { ConfigParameter } from '../types/properties.js'
 import type {

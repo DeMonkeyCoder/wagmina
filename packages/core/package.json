@@ -1,5 +1,5 @@
 {
-  "name": "@wagmi/core",
+  "name": "@wagmina/core",
   "description": "VanillaJS library for Mina",
   "version": "0.0.1",
   "license": "MIT",
@@ -84,5 +84,5 @@
   "devDependencies": {
     "@tanstack/query-core": "^5.49.1"
   },
-  "keywords": ["wagmi", "mina", "dapps", "wallet", "web3"]
+  "keywords": ["wagmina", "mina", "dapps", "wallet", "web3"]
 }

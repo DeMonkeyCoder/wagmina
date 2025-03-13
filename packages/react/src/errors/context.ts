@@ -1,13 +1,13 @@
 import { BaseError } from './base.js'
 
-export type WagmiProviderNotFoundErrorType = WagmiProviderNotFoundError & {
-  name: 'WagmiProviderNotFoundError'
+export type WagminaProviderNotFoundErrorType = WagminaProviderNotFoundError & {
+  name: 'WagminaProviderNotFoundError'
 }
-export class WagmiProviderNotFoundError extends BaseError {
-  override name = 'WagmiProviderNotFoundError'
+export class WagminaProviderNotFoundError extends BaseError {
+  override name = 'WagminaProviderNotFoundError'
   constructor() {
-    super('`useConfig` must be used within `WagmiProvider`.', {
-      docsPath: '/api/WagmiProvider',
+    super('`useConfig` must be used within `WagminaProvider`.', {
+      docsPath: '/api/WagminaProvider',
     })
   }
 }

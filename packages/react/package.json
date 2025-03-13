@@ -1,5 +1,5 @@
 {
-  "name": "wagmi",
+  "name": "wagmina",
   "description": "React Hooks for Mina",
   "version": "0.0.1",
   "license": "MIT",
@@ -68,7 +68,7 @@
     }
   },
   "dependencies": {
-    "@wagmi/core": "workspace:*",
+    "@wagmina/core": "workspace:*",
     "use-sync-external-store": "1.2.0"
   },
   "devDependencies": {
@@ -80,5 +80,5 @@
     "react": ">=18.3.1",
     "react-dom": ">=18.3.1"
   },
-  "keywords": ["wagmi", "react", "hooks", "mina", "dapps", "wallet", "web3"]
+  "keywords": ["wagmina", "react", "hooks", "mina", "dapps", "wallet", "web3"]
 }

@@ -1,11 +1,11 @@
-import { BaseError as CoreError } from '@wagmi/core'
+import { BaseError as CoreError } from '@wagmina/core'
 
 import { getVersion } from '../utils/getVersion.js'
 
-export type BaseErrorType = BaseError & { name: 'WagmiError' }
+export type BaseErrorType = BaseError & { name: 'WagminaError' }
 
 export class BaseError extends CoreError {
-  override name = 'WagmiError'
+  override name = 'WagminaError'
 
   override get docsBaseUrl() {
     return ''

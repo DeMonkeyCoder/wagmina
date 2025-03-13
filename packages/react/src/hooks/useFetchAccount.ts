@@ -4,15 +4,15 @@ import type {
   Config,
   FetchAccountErrorType,
   ResolvedRegister,
-} from '@wagmi/core'
-import type { Compute } from '@wagmi/core/internal'
-import type { FetchAccountQueryFnData } from '@wagmi/core/query'
+} from '@wagmina/core'
+import type { Compute } from '@wagmina/core/internal'
+import type { FetchAccountQueryFnData } from '@wagmina/core/query'
 import {
   type FetchAccountData,
   type FetchAccountOptions,
   type FetchAccountQueryKey,
   fetchAccountQueryOptions,
-} from '@wagmi/core/query'
+} from '@wagmina/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
 import { type UseQueryReturnType, useQuery } from '../utils/query.js'

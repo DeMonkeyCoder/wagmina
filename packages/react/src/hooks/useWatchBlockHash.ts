@@ -5,8 +5,8 @@ import {
   type ResolvedRegister,
   type WatchBlockHashParameters,
   watchBlockHash,
-} from '@wagmi/core'
-import type { UnionCompute, UnionExactPartial } from '@wagmi/core/internal'
+} from '@wagmina/core'
+import type { UnionCompute, UnionExactPartial } from '@wagmina/core/internal'
 import { useEffect } from 'react'
 
 import type { ConfigParameter, EnabledParameter } from '../types/properties.js'

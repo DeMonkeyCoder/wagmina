@@ -4,9 +4,9 @@
 
 // biome-ignore lint/performance/noBarrelFile: entrypoint module
 export {
-  type WagmiProviderProps,
-  WagmiContext,
-  WagmiProvider,
+  type WagminaProviderProps,
+  WagminaContext,
+  WagminaProvider,
 } from '../context.js'
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -16,8 +16,8 @@ export {
 export { type BaseErrorType, BaseError } from '../errors/base.js'
 
 export {
-  type WagmiProviderNotFoundErrorType,
-  WagmiProviderNotFoundError,
+  type WagminaProviderNotFoundErrorType,
+  WagminaProviderNotFoundError,
 } from '../errors/context.js'
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -174,7 +174,7 @@ export {
 export { type HydrateProps, Hydrate } from '../hydrate.js'
 
 ////////////////////////////////////////////////////////////////////////////////
-// @wagmi/core
+// @wagmina/core
 ////////////////////////////////////////////////////////////////////////////////
 
 export {
@@ -224,7 +224,7 @@ export {
   normalizeNetworkId,
   parseCookie,
   serialize,
-} from '@wagmi/core'
+} from '@wagmina/core'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Version

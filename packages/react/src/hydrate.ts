@@ -1,6 +1,6 @@
 'use client'
 
-import { type ResolvedRegister, type State, hydrate } from '@wagmi/core'
+import { type ResolvedRegister, type State, hydrate } from '@wagmina/core'
 import { type ReactElement, useEffect, useRef } from 'react'
 
 export type HydrateProps = {

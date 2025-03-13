@@ -72,7 +72,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@wagmi/core':
+      '@wagmina/core':
         specifier: workspace:*
         version: link:../core
       use-sync-external-store:

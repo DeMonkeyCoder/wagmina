@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-// @wagmi/core/query
+// @wagmina/core/query
 ////////////////////////////////////////////////////////////////////////////////
 
 // biome-ignore lint/performance/noBarrelFile: entrypoint module
 // biome-ignore lint/performance/noReExportAll: entrypoint module
-export * from '@wagmi/core/query'
+export * from '@wagmina/core/query'
 
 export {
   type UseInfiniteQueryParameters,
