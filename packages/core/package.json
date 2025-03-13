@@ -1,0 +1,88 @@
+{
+  "name": "@wagmina/core",
+  "description": "VanillaJS library for Mina",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeMonkeyCoder/wagmina.git",
+    "directory": "packages/core"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm run build:esm+types",
+    "build:esm+types": "tsc --project tsconfig.build.json --outDir ./dist/esm --declaration --declarationMap --declarationDir ./dist/types",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo actions chains codegen experimental internal query",
+    "test:build": "publint --strict && attw --pack --ignore-rules cjs-resolves-to-esm",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist/**",
+    "!dist/**/*.tsbuildinfo",
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.test-d.ts",
+    "/actions",
+    "/chains",
+    "/internal",
+    "/query"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/esm/exports/index.js",
+  "types": "./dist/types/exports/index.d.ts",
+  "typings": "./dist/types/exports/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/exports/index.d.ts",
+      "default": "./dist/esm/exports/index.js"
+    },
+    "./actions": {
+      "types": "./dist/types/exports/actions.d.ts",
+      "default": "./dist/esm/exports/actions.js"
+    },
+    "./chains": {
+      "types": "./dist/types/exports/chains.d.ts",
+      "default": "./dist/esm/exports/chains.js"
+    },
+    "./internal": {
+      "types": "./dist/types/exports/internal.d.ts",
+      "default": "./dist/esm/exports/internal.js"
+    },
+    "./query": {
+      "types": "./dist/types/exports/query.d.ts",
+      "default": "./dist/esm/exports/query.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "actions": ["./dist/types/exports/actions.d.ts"],
+      "chains": ["./dist/types/exports/chains.d.ts"],
+      "codegen": ["./dist/types/exports/codegen.d.ts"],
+      "internal": ["./dist/types/exports/internal.d.ts"],
+      "query": ["./dist/types/exports/query.d.ts"]
+    }
+  },
+  "peerDependencies": {
+    "@tanstack/query-core": ">=5.0.0",
+    "typescript": ">=5.0.4",
+    "vimina": ">=0.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/query-core": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@mina-js/connect": "https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a",
+    "eventemitter3": "5.0.1",
+    "zustand": "4.4.1"
+  },
+  "devDependencies": {
+    "@tanstack/query-core": "^5.49.1"
+  },
+  "keywords": ["wagmina", "mina", "dapps", "wallet", "web3"]
+}

@@ -1,0 +1,93 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run --r --filter \"./packages/**\" build",
+    "changeset:prepublish": "pnpm version:update && pnpm build && bun scripts/formatPackageJson.ts && bun scripts/generateProxyPackages.ts",
+    "changeset:publish": "pnpm changeset:prepublish && changeset publish",
+    "changeset:version": "changeset version && pnpm version:update && pnpm format",
+    "clean": "pnpm run --r --parallel clean && rm -rf packages/**/*.json.tmp",
+    "deps": "pnpx taze -r",
+    "dev": "pnpm dev:react",
+    "dev:cli": "pnpm --filter cli dev",
+    "dev:core": "pnpm --filter vite-core dev",
+    "dev:create-wagmina": "pnpm --filter create-wagmina dev",
+    "dev:next": "pnpm --filter next-app dev",
+    "dev:nuxt": "pnpm --filter nuxt-app dev",
+    "dev:react": "pnpm --filter vite-react dev",
+    "docs:dev": "pnpm --filter site dev",
+    "format": "biome format --write",
+    "lint": "biome check --write",
+    "lint:repo": "sherif",
+    "lint:unused": "pnpm clean && knip",
+    "postinstall": "pnpm preconstruct",
+    "preconstruct": "bun scripts/preconstruct.ts",
+    "preinstall": "pnpx only-allow pnpm",
+    "prepare": "pnpm simple-git-hooks",
+    "test": "vitest",
+    "test:build": "pnpm run --r --parallel test:build",
+    "test:cli": "vitest --project @wagmina/cli",
+    "test:core": "vitest --project @wagmina/core",
+    "test:create-wagmina": "vitest --project create-wagmina",
+    "test:cov": "vitest run --coverage",
+    "test:react": "vitest --project wagmina",
+    "test:typecheck": "vitest typecheck",
+    "test:update": "vitest --update",
+    "test:ui": "vitest --ui",
+    "typecheck": "pnpm run --r --parallel typecheck && tsc --noEmit",
+    "version:update": "bun scripts/updateVersion.ts",
+    "version:update:vimina": "bun scripts/updateViminaVersion.ts"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.3",
+    "@biomejs/biome": "^1.8.0",
+    "@changesets/changelog-github": "0.4.6",
+    "@changesets/cli": "^2.27.1",
+    "@types/bun": "^1.1.1",
+    "bun": "^1.1.7",
+    "glob": "^10.3.12",
+    "happy-dom": "^12.2.1",
+    "knip": "^5.13.0",
+    "prool": "^0.0.11",
+    "publint": "^0.2.7",
+    "sherif": "^0.8.4",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "5.5.2",
+    "vimina": "https://pkg.pr.new/DeMonkeyCoder/vimina@414040a"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "react",
+        "react-native",
+        "search-insights"
+      ]
+    }
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint"
+  },
+  "knip": {
+    "ignoreBinaries": ["only-allow"],
+    "ignoreWorkspaces": ["playgrounds/**"],
+    "workspaces": {
+      ".": {
+        "project": "scripts/*.ts"
+      },
+      "packages/core": {
+        "entry": "src/exports/{actions,chains,index,internal,query}.ts!",
+        "ignore": ["test/setup.ts"],
+        "ignoreDependencies": ["@tanstack/query-core"]
+      },
+      "packages/react": {
+        "entry": "src/exports/{actions,chains,index,query}.ts!",
+        "ignore": ["test/setup.ts"]
+      }
+    }
+  }
+}
