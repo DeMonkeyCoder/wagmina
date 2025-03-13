@@ -7,7 +7,6 @@ import {
 
 import type { Config } from '../createConfig.js'
 import type { NetworkIdParameter } from '../types/properties.js'
-import type { Unit } from '../types/unit.js'
 import type { Compute } from '../types/utils.js'
 import { getAction } from '../utils/getAction.js'
 
@@ -16,8 +15,6 @@ export type GetBalanceParameters<config extends Config = Config> = Compute<
     viem_GetBalanceParameters & {
       /** @deprecated */
       token?: Address | undefined
-      /** @deprecated */
-      unit?: Unit | undefined
     }
 >
 

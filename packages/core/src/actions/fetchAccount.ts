@@ -1,4 +1,4 @@
-import type { Address, Chain } from 'vimina'
+import type { Chain } from 'vimina'
 import {
   type FetchAccountErrorType as viem_FetchAccountErrorType,
   type FetchAccountParameters as viem_FetchAccountParameters,
@@ -9,7 +9,6 @@ import {
 import type { Config } from '../createConfig.js'
 import type { SelectChains } from '../types/chain.js'
 import type { NetworkIdParameter } from '../types/properties.js'
-import type { Unit } from '../types/unit.js'
 import type { Compute } from '../types/utils.js'
 import { getAction } from '../utils/getAction.js'
 
@@ -21,12 +20,8 @@ export type FetchAccountParameters<
 > = Compute<
   {
     [key in keyof chains]: Compute<
-      viem_FetchAccountParameters<chains[key], chains[key]> & {
-        /** @deprecated */
-        token?: Address | undefined
-        /** @deprecated */
-        unit?: Unit | undefined
-      } & NetworkIdParameter<config, networkId>
+      viem_FetchAccountParameters<chains[key], chains[key]> &
+        NetworkIdParameter<config, networkId>
     >
   }[number]
 >
