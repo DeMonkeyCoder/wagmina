@@ -47,7 +47,7 @@
   "typesVersions": {
     "*": {
       "adapter": ["./dist/types/exports/adapter.d.ts"],
-      "network": ["./dist/types/exports/networks.d.ts"]
+      "networks": ["./dist/types/exports/networks.d.ts"]
     }
   },
   "peerDependencies": {
