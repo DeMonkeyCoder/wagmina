@@ -1,12 +1,12 @@
 {
-  "name": "@wagmina/core",
-  "description": "VanillaJS library for Mina",
+  "name": "@wagmina/appkit",
+  "description": "Integration tools connecting Wagmina with Reown's AppKit",
   "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/DeMonkeyCoder/wagmina.git",
-    "directory": "packages/core"
+    "directory": "packages/appkit"
   },
   "scripts": {
     "build": "pnpm run clean && pnpm run build:esm+types",
@@ -21,10 +21,8 @@
     "src/**/*.ts",
     "!src/**/*.test.ts",
     "!src/**/*.test-d.ts",
-    "/actions",
-    "/chains",
-    "/internal",
-    "/query"
+    "/adapter",
+    "/networks"
   ],
   "sideEffects": false,
   "type": "module",
@@ -36,52 +34,45 @@
       "types": "./dist/types/exports/index.d.ts",
       "default": "./dist/esm/exports/index.js"
     },
-    "./actions": {
-      "types": "./dist/types/exports/actions.d.ts",
-      "default": "./dist/esm/exports/actions.js"
+    "./adapter": {
+      "types": "./dist/types/exports/adapter.d.ts",
+      "default": "./dist/esm/exports/adapter.js"
     },
-    "./chains": {
-      "types": "./dist/types/exports/chains.d.ts",
-      "default": "./dist/esm/exports/chains.js"
-    },
-    "./internal": {
-      "types": "./dist/types/exports/internal.d.ts",
-      "default": "./dist/esm/exports/internal.js"
-    },
-    "./query": {
-      "types": "./dist/types/exports/query.d.ts",
-      "default": "./dist/esm/exports/query.js"
+    "./networks": {
+      "types": "./dist/types/exports/networks.d.ts",
+      "default": "./dist/esm/exports/networks.js"
     },
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
-      "actions": ["./dist/types/exports/actions.d.ts"],
-      "chains": ["./dist/types/exports/chains.d.ts"],
-      "internal": ["./dist/types/exports/internal.d.ts"],
-      "query": ["./dist/types/exports/query.d.ts"]
+      "adapter": ["./dist/types/exports/adapter.d.ts"],
+      "network": ["./dist/types/exports/networks.d.ts"]
     }
   },
   "peerDependencies": {
-    "@tanstack/query-core": ">=5.0.0",
+    "@reown/appkit": ">=1.0.0",
     "typescript": ">=5.0.4",
     "vimina": ">=0.0.1"
   },
   "peerDependenciesMeta": {
-    "@tanstack/query-core": {
-      "optional": true
-    },
     "typescript": {
       "optional": true
     }
   },
   "dependencies": {
-    "@mina-js/connect": "https://pkg.pr.new/palladians/mina-js/@mina-js/connect@d652e7a",
-    "eventemitter3": "5.0.1",
-    "zustand": "4.4.1"
+    "@mina-js/utils": "https://pkg.pr.new/palladians/mina-js/@mina-js/utils@d652e7a",
+    "@reown/appkit": "1.6.9",
+    "@reown/appkit-common": "1.6.9",
+    "@reown/appkit-core": "1.6.9",
+    "@reown/appkit-utils": "1.6.9",
+    "@reown/appkit-wallet": "1.6.9",
+    "@wagmina/core": "workspace:*",
+    "valtio": "1.13.2",
+    "wagmina": "workspace:*"
   },
+  "keywords": ["wagmina", "mina", "dapps", "wallet", "web3", "appkit", "reown"],
   "devDependencies": {
-    "@tanstack/query-core": "^5.49.1"
-  },
-  "keywords": ["wagmina", "mina", "dapps", "wallet", "web3"]
+    "@walletconnect/universal-provider": "^2.18.0"
+  }
 }

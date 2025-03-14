@@ -30,4 +30,4 @@ jobs:
         run: pnpm build
 
       - name: Publish preview packages
-        run: pnpm dlx pkg-pr-new publish './packages/core' './packages/react'
+        run: pnpm dlx pkg-pr-new publish './packages/core' './packages/react' './packages/appkit'
