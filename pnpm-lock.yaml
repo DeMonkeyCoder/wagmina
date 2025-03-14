@@ -51,8 +51,8 @@ importers:
         specifier: 5.5.2
         version: 5.5.2
       vimina:
-        specifier: https://pkg.pr.new/DeMonkeyCoder/vimina@414040a
-        version: https://pkg.pr.new/DeMonkeyCoder/vimina@414040a(typescript@5.5.2)
+        specifier: https://pkg.pr.new/DeMonkeyCoder/vimina@7d834ec
+        version: https://pkg.pr.new/DeMonkeyCoder/vimina@7d834ec(typescript@5.5.2)
 
   packages/appkit:
     dependencies:
@@ -838,6 +838,7 @@ packages:
 
   bun@1.1.7:
     resolution: {integrity: sha512-4Q/ySjXfSTOsehxektQuo376FfI/QMPSjnsBAwQAZsRFW37Hb8IdctOABDEBQcrYmiwgDGKlgdWTQ8/5H0N2ww==}
+    cpu: [arm64, x64]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -2478,8 +2479,8 @@ packages:
       typescript:
         optional: true
 
-  vimina@https://pkg.pr.new/DeMonkeyCoder/vimina@414040a:
-    resolution: {tarball: https://pkg.pr.new/DeMonkeyCoder/vimina@414040a}
+  vimina@https://pkg.pr.new/DeMonkeyCoder/vimina@7d834ec:
+    resolution: {tarball: https://pkg.pr.new/DeMonkeyCoder/vimina@7d834ec}
     version: 0.0.1
     peerDependencies:
       typescript: '>=5.0.4'
@@ -5518,7 +5519,7 @@ snapshots:
       - utf-8-validate
       - zod
 
-  vimina@https://pkg.pr.new/DeMonkeyCoder/vimina@414040a(typescript@5.5.2):
+  vimina@https://pkg.pr.new/DeMonkeyCoder/vimina@7d834ec(typescript@5.5.2):
     dependencies:
       '@mina-js/utils': https://pkg.pr.new/palladians/mina-js/@mina-js/utils@d652e7a(typescript@5.5.2)
       '@noble/hashes': 1.6.1
