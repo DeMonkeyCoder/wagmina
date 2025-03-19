@@ -1,10 +1,10 @@
 import type { QueryOptions } from '@tanstack/query-core'
 
 import {
-  getBalance,
   type GetBalanceErrorType,
   type GetBalanceParameters,
   type GetBalanceReturnType,
+  getBalance,
 } from '../actions/getBalance.js'
 import type { Config } from '../createConfig.js'
 import type { ScopeKeyParameter } from '../types/properties.js'

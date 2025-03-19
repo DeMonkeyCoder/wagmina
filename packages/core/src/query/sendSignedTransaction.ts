@@ -1,10 +1,10 @@
 import type { MutateOptions, MutationOptions } from '@tanstack/query-core'
 
 import {
-  sendSignedTransaction,
   type SendSignedTransactionErrorType,
   type SendSignedTransactionParameters,
   type SendSignedTransactionReturnType,
+  sendSignedTransaction,
 } from '../actions/sendSignedTransaction.js'
 import type { Config } from '../createConfig.js'
 import type { Compute } from '../types/utils.js'

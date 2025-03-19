@@ -559,7 +559,7 @@ export class WagminaAdapter extends AdapterBlueprint {
           const balance = await getBalance(this.wagminaConfig, {
             address: params.address as Hex,
             networkId: chainId as string,
-            token: params.tokens?.[caipNetwork.caipNetworkId]?.address as Hex,
+            tokenId: params.tokens?.[caipNetwork.caipNetworkId]?.address as Hex,
           })
 
           StorageUtil.updateNativeBalanceCache({

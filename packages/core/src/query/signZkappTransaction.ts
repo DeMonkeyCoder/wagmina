@@ -1,9 +1,9 @@
 import type { MutateOptions, MutationOptions } from '@tanstack/query-core'
 import {
-  signTransaction,
   type SignTransactionErrorType,
   type SignTransactionParameters,
   type SignTransactionReturnType,
+  signTransaction,
 } from '../actions/signTransaction.js'
 import type { Config } from '../createConfig.js'
 import type { Compute } from '../types/utils.js'
