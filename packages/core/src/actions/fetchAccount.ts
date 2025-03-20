@@ -37,7 +37,7 @@ export async function fetchAccount<
   config: config,
   parameters: FetchAccountParameters<config, networkId>,
 ): Promise<FetchAccountReturnType> {
-  const { address, networkId } = parameters
+  const { address, tokenId, networkId } = parameters
 
   const client = config.getClient({ networkId })
   const action = getAction(client, vimina_fetchAccount, 'fetchAccount')
@@ -45,6 +45,7 @@ export async function fetchAccount<
   const chain = config.chains.find((x) => x.id === networkId) ?? client.chain!
   return action({
     address,
+    tokenId,
     chain,
   })
 }
