@@ -13,11 +13,7 @@ export type GetBalanceParameters<config extends Config = Config> = Compute<
   NetworkIdParameter<config> & vimina_GetBalanceParameters
 >
 
-export type GetBalanceReturnType = {
-  decimals: number
-  symbol: string
-  value: bigint
-}
+export type GetBalanceReturnType = bigint
 
 export type GetBalanceErrorType = vimina_GetBalanceErrorType
 
@@ -29,11 +25,5 @@ export async function getBalance<config extends Config>(
 
   const client = config.getClient({ networkId })
   const action = getAction(client, vimina_getBalance, 'getBalance')
-  const value = await action({ address, tokenId })
-  const chain = config.chains.find((x) => x.id === networkId) ?? client.chain!
-  return {
-    decimals: chain.nativeCurrency.decimals,
-    symbol: chain.nativeCurrency.symbol,
-    value,
-  }
+  return action({ address, tokenId })
 }

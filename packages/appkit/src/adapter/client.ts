@@ -556,6 +556,14 @@ export class WagminaAdapter extends AdapterBlueprint {
         // biome-ignore lint/suspicious/noAsyncPromiseExecutor: <explanation>
         new Promise<AdapterBlueprint.GetBalanceResult>(async (resolve) => {
           const chainId = params.chainId
+
+          const client = this.wagminaConfig.getClient({
+            networkId: String(chainId),
+          })
+          const chain =
+            this.wagminaConfig.chains.find((x) => x.id === String(chainId)) ??
+            client.chain!
+
           const balance = await getBalance(this.wagminaConfig, {
             address: params.address as Hex,
             networkId: chainId as string,
@@ -564,13 +572,13 @@ export class WagminaAdapter extends AdapterBlueprint {
 
           StorageUtil.updateNativeBalanceCache({
             caipAddress,
-            balance: formatMina(balance.value),
-            symbol: balance.symbol,
+            balance: formatMina(balance),
+            symbol: chain.nativeCurrency.symbol,
             timestamp: Date.now(),
           })
           resolve({
-            balance: formatMina(balance.value),
-            symbol: balance.symbol,
+            balance: formatMina(balance),
+            symbol: chain.nativeCurrency.symbol,
           })
         }).finally(() => {
           delete this.balancePromises[caipAddress]
