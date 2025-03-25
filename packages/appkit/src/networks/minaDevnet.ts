@@ -7,11 +7,10 @@ export const minaDevnet: AppKitNetwork & {
   id: string
 } = defineChain({
   id: devnet.id,
-  name: 'Mina Devnet',
+  name: devnet.name,
   nativeCurrency: devnet.nativeCurrency,
   rpcUrls: devnet.rpcUrls,
   blockExplorers: devnet.blockExplorers,
-  graphqlEndpoint: devnet.graphqlEndpoint,
   testnet: true,
   chainNamespace: 'mina' as ChainNamespace,
   caipNetworkId: 'mina:devnet' as CaipNetworkId,

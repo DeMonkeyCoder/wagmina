@@ -124,7 +124,7 @@ export function mock(parameters: MockParameters) {
     async getProvider({ networkId } = {}) {
       const chain =
         config.chains.find((x) => x.id === networkId) ?? config.chains[0]
-      const url = chain.rpcUrls.default.http[0]!
+      const url = chain.rpcUrls.default.graphql[0]!
 
       const request: JSAPIStandardRequestFn = async ({ method, params }) => {
         // mina methods

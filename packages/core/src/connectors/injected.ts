@@ -170,10 +170,7 @@ export function injected(parameters: InjectedParameters = {}) {
             // TODO: Remove this hotfix once the method mismatch between wallets is resolved
             let newNetworkId = arg
             if (getTarget().id === 'com.aurowallet') {
-              newNetworkId =
-                (arg as any).networkID === 'mina:testnet'
-                  ? 'mina:devnet'
-                  : (arg as any).networkID
+              newNetworkId = (arg as any).networkID
             }
             chainChanged?.(newNetworkId.split(':')[1]!)
           })
@@ -276,7 +273,7 @@ export function injected(parameters: InjectedParameters = {}) {
           (await provider.request({ method: 'mina_requestNetwork' })).networkID
             // @ts-ignore
             .split(':')[1]
-        return response === 'testnet' ? 'devnet' : response
+        return response
       }
       return (await provider.request({ method: 'mina_networkId' })).split(
         ':',
@@ -383,10 +380,7 @@ export function injected(parameters: InjectedParameters = {}) {
                 method: 'mina_switchChain',
                 params: {
                   // @ts-ignore
-                  networkID:
-                    caipNetworkId === 'mina:devnet'
-                      ? 'mina:testnet'
-                      : caipNetworkId,
+                  networkID: caipNetworkId,
                 },
               })
             : provider.request({
@@ -428,7 +422,7 @@ export function injected(parameters: InjectedParameters = {}) {
               // @ts-ignore
               method: 'mina_addChain',
               // @ts-ignore
-              params: { url: chain.graphqlEndpoint, name: chain.id },
+              params: { url: chain.rpcUrls.default.graphql[0], name: chain.id },
             })
 
             const currentNetworkId = await this.getNetworkId()
@@ -495,10 +489,7 @@ export function injected(parameters: InjectedParameters = {}) {
             // TODO: Remove this hotfix once the method mismatch between wallets is resolved
             let newNetworkId = arg
             if (getTarget().id === 'com.aurowallet') {
-              newNetworkId =
-                (arg as any).networkID === 'mina:testnet'
-                  ? 'mina:devnet'
-                  : (arg as any).networkID
+              newNetworkId = (arg as any).networkID
             }
             chainChanged?.(newNetworkId.split(':')[1]!)
           })

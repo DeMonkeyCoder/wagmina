@@ -7,7 +7,7 @@ type ExtractRpcUrlsParameters = {
 
 export function extractRpcUrls(parameters: ExtractRpcUrlsParameters) {
   const { chain } = parameters
-  const fallbackUrl = chain.rpcUrls.default.http[0]
+  const fallbackUrl = chain.rpcUrls.default.graphql[0]
 
   if (!parameters.transports) return [fallbackUrl]
 
