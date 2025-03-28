@@ -11,7 +11,7 @@ import {
   custom,
   getAddress,
 } from 'vimina'
-import { rpc } from 'vimina/utils'
+import { getKlesiaRpcClient } from 'vimina/utils'
 
 import {
   ChainNotConfiguredError,
@@ -124,7 +124,7 @@ export function mock(parameters: MockParameters) {
     async getProvider({ networkId } = {}) {
       const chain =
         config.chains.find((x) => x.id === networkId) ?? config.chains[0]
-      const url = chain.rpcUrls.default.graphql[0]!
+      const url = chain.rpcUrls.default.http[0]!
 
       const request: JSAPIStandardRequestFn = async ({ method, params }) => {
         // mina methods
@@ -190,7 +190,7 @@ export function mock(parameters: MockParameters) {
           const hashes = []
           const calls = (params as any)[0].calls
           for (const call of calls) {
-            const { result, error } = await rpc.http(url, {
+            const { result, error } = await getKlesiaRpcClient(url).request({
               body: {
                 method: 'mina_sendTransaction',
                 params: [call],
@@ -215,7 +215,7 @@ export function mock(parameters: MockParameters) {
           if (!hashes) return null
           const receipts = await Promise.all(
             hashes.map(async (hash) => {
-              const { result, error } = await rpc.http(url, {
+              const { result, error } = await getKlesiaRpcClient(url).request({
                 body: {
                   method: 'mina_getTransactionReceipt',
                   params: [hash],
@@ -262,7 +262,9 @@ export function mock(parameters: MockParameters) {
         }
 
         const body = { method, params }
-        const { error, result } = await rpc.http(url, { body })
+        const { error, result } = await getKlesiaRpcClient(url).request({
+          body,
+        })
         if (error) throw new RpcRequestError({ body, error, url })
 
         return result

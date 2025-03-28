@@ -25,7 +25,6 @@ import type { Hex } from 'vimina'
 
 import type { AppKit, AppKitOptions } from '@reown/appkit'
 import type {
-  AppKitNetwork,
   BaseNetwork,
   CaipNetwork,
   ChainNamespace,
@@ -33,7 +32,7 @@ import type {
 import { ConstantsUtil as CommonConstantsUtil } from '@reown/appkit-common'
 import { CoreHelperUtil, StorageUtil } from '@reown/appkit-core'
 import type { ConnectorType, Provider } from '@reown/appkit-core'
-import { CaipNetworksUtil, PresetsUtil } from '@reown/appkit-utils'
+import { PresetsUtil } from '@reown/appkit-utils'
 import type { W3mFrameProvider } from '@reown/appkit-wallet'
 import { AdapterBlueprint } from '@reown/appkit/adapters'
 
@@ -65,20 +64,14 @@ export class WagminaAdapter extends AdapterBlueprint {
 
   constructor(
     configParams: Partial<CreateConfigParameters> & {
-      networks: AppKitNetwork[]
+      networks: [CaipNetwork, ...CaipNetwork[]]
       pendingTransactionsFilter?: PendingTransactionsFilter
       projectId: string
     },
   ) {
     super({
       projectId: configParams.projectId,
-      networks: CaipNetworksUtil.extendCaipNetworks(configParams.networks, {
-        projectId: configParams.projectId,
-        customNetworkImageUrls: {},
-        customRpcChainIds: configParams.transports
-          ? Object.keys(configParams.transports).map(Number)
-          : [],
-      }) as [CaipNetwork, ...CaipNetwork[]],
+      networks: configParams.networks,
     })
 
     // this.pendingTransactionsFilter = {
@@ -88,18 +81,15 @@ export class WagminaAdapter extends AdapterBlueprint {
 
     this.namespace = 'mina' as any
 
-    this.createConfig({
+    const config: any = {
       ...configParams,
-      networks: CaipNetworksUtil.extendCaipNetworks(configParams.networks, {
-        projectId: configParams.projectId,
-        customNetworkImageUrls: {},
-        customRpcChainIds: configParams.transports
-          ? Object.keys(configParams.transports).map(Number)
-          : [],
-      }) as [CaipNetwork, ...CaipNetwork[]],
-      projectId: configParams.projectId,
-    })
+      chains: configParams.networks as unknown as [
+        BaseNetwork,
+        ...BaseNetwork[],
+      ],
+    }
 
+    this.wagminaConfig = createConfig(config)
     this.setupWatchers()
   }
 
@@ -134,52 +124,6 @@ export class WagminaAdapter extends AdapterBlueprint {
 
   private getWagminaConnector(id: string) {
     return this.wagminaConfig.connectors.find((c) => c.id === id)
-  }
-
-  private createConfig(
-    configParams: Partial<CreateConfigParameters> & {
-      networks: CaipNetwork[]
-      projectId: string
-    },
-  ) {
-    // this.caipNetworks = configParams.networks
-    // this.wagminaChains = this.caipNetworks.filter(
-    //   (caipNetwork) =>
-    //     caipNetwork.chainNamespace === CommonConstantsUtil.CHAIN.EVM,
-    // ) as unknown as [BaseNetwork, ...BaseNetwork[]]
-    //
-    // const transportsArr = this.wagminaChains.map((chain) => [
-    //   chain.id,
-    //   CaipNetworksUtil.getViemTransport(chain as CaipNetwork),
-    // ])
-    //
-    // Object.entries(configParams.transports ?? {}).forEach(
-    //   ([chainId, transport]) => {
-    //     const index = transportsArr.findIndex(([id]) => id === Number(chainId))
-    //     if (index === -1) {
-    //       transportsArr.push([Number(chainId), transport as HttpTransport])
-    //     } else {
-    //       transportsArr[index] = [Number(chainId), transport as HttpTransport]
-    //     }
-    //   },
-    // )
-    //
-    // const transports = Object.fromEntries(transportsArr)
-    // const connectors: CreateConnectorFn[] = [...(configParams.connectors ?? [])]
-    //
-    // this.wagminaConfig = createConfig({
-    //   ...configParams,
-    //   chains: this.wagminaChains,
-    //   transports,
-    //   connectors,
-    // })
-    this.wagminaConfig = createConfig({
-      ...configParams,
-      chains: configParams.networks as unknown as [
-        BaseNetwork,
-        ...BaseNetwork[],
-      ],
-    } as any)
   }
 
   // private setupWatchPendingTransactions() {

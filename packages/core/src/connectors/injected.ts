@@ -422,7 +422,7 @@ export function injected(parameters: InjectedParameters = {}) {
               // @ts-ignore
               method: 'mina_addChain',
               // @ts-ignore
-              params: { url: chain.rpcUrls.default.graphql[0], name: chain.id },
+              params: { url: chain.rpcUrls.default.http[0], name: chain.id },
             })
 
             const currentNetworkId = await this.getNetworkId()
