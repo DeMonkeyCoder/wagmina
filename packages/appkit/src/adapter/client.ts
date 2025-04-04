@@ -221,8 +221,7 @@ export class WagminaAdapter extends AdapterBlueprint {
     // }
 
     if (options.enableInjected !== false) {
-      // customConnectors.push(injected({ shimDisconnect: true }))
-      customConnectors.push(injected({ shimDisconnect: false }))
+      customConnectors.push(injected({ shimDisconnect: true }))
     }
 
     // const emailEnabled =

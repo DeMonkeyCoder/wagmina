@@ -120,33 +120,33 @@ export function injected(parameters: InjectedParameters = {}) {
 
       let accounts: readonly Address[] = []
       if (isReconnecting) accounts = await this.getAccounts().catch(() => [])
-      else if (shimDisconnect) {
-        // Attempt to show another prompt for selecting account if `shimDisconnect` flag is enabled
-        try {
-          const permissions = await provider.request({
-            method: 'wallet_requestPermissions',
-            params: [{ mina_accounts: {} }],
-          })
-          accounts = (permissions[0]?.caveats?.[0]?.value as string[])?.map(
-            (x) => getAddress(x),
-          )
-          // `'wallet_requestPermissions'` can return a different order of accounts than `'mina_accounts'`
-          // switch to `'mina_accounts'` ordering if more than one account is connected
-          // https://github.com/DeMonkeyCoder/wagmina/issues/4140
-          if (accounts.length > 0) {
-            const sortedAccounts = await this.getAccounts()
-            accounts = sortedAccounts
-          }
-        } catch (err) {
-          const error = err as RpcError
-          // Not all injected providers support `wallet_requestPermissions` (e.g. MetaMask iOS).
-          // Only bubble up error if user rejects request
-          if (error.code === UserRejectedRequestError.code)
-            throw new UserRejectedRequestError(error)
-          // Or prompt is already open
-          if (error.code === ResourceUnavailableRpcError.code) throw error
-        }
-      }
+      // else if (shimDisconnect) {
+      //   // Attempt to show another prompt for selecting account if `shimDisconnect` flag is enabled
+      //   try {
+      //     const permissions = await provider.request({
+      //       method: 'wallet_requestPermissions',
+      //       params: [{ mina_accounts: {} }],
+      //     })
+      //     accounts = (permissions[0]?.caveats?.[0]?.value as string[])?.map(
+      //       (x) => getAddress(x),
+      //     )
+      //     // `'wallet_requestPermissions'` can return a different order of accounts than `'mina_accounts'`
+      //     // switch to `'mina_accounts'` ordering if more than one account is connected
+      //     // https://github.com/DeMonkeyCoder/wagmina/issues/4140
+      //     if (accounts.length > 0) {
+      //       const sortedAccounts = await this.getAccounts()
+      //       accounts = sortedAccounts
+      //     }
+      //   } catch (err) {
+      //     const error = err as RpcError
+      //     // Not all injected providers support `wallet_requestPermissions` (e.g. MetaMask iOS).
+      //     // Only bubble up error if user rejects request
+      //     if (error.code === UserRejectedRequestError.code)
+      //       throw new UserRejectedRequestError(error)
+      //     // Or prompt is already open
+      //     if (error.code === ResourceUnavailableRpcError.code) throw error
+      //   }
+      // }
       try {
         if (!accounts?.length && !isReconnecting) {
           const requestedAccounts = await provider.request({

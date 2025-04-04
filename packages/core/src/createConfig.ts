@@ -126,8 +126,6 @@ export function createConfig<
     const provider = providerDetail.provider as any
     return injected({
       target: { ...info, id: info.rdns, provider },
-      //TODO: change this after implementing wallet_requestPermissions in Pallad
-      shimDisconnect: false,
     })
   }
 
