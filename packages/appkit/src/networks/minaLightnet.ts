@@ -1,11 +1,9 @@
 import type { CaipNetworkId, ChainNamespace } from '@reown/appkit-common'
-import type { AppKitNetwork } from '@reown/appkit/networks'
 import { defineChain } from '@reown/appkit/networks'
 import { lightnet } from 'vimina/chains'
+import type { WagminaAppKitNetwork } from '../types/network'
 
-export const minaLightnet: AppKitNetwork & {
-  id: string
-} = defineChain({
+export const minaLightnet: WagminaAppKitNetwork = defineChain({
   id: lightnet.id,
   name: lightnet.name,
   nativeCurrency: lightnet.nativeCurrency,

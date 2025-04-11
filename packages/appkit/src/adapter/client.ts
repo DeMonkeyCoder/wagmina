@@ -22,11 +22,7 @@ import {
 import type { Hex } from 'vimina'
 
 import type { AppKit, AppKitOptions } from '@reown/appkit'
-import type {
-  BaseNetwork,
-  CaipNetwork,
-  ChainNamespace,
-} from '@reown/appkit-common'
+import type { BaseNetwork, ChainNamespace } from '@reown/appkit-common'
 import { ConstantsUtil as CommonConstantsUtil } from '@reown/appkit-common'
 import { CoreHelperUtil, StorageUtil } from '@reown/appkit-core'
 import type { ConnectorType, Provider } from '@reown/appkit-core'
@@ -36,6 +32,7 @@ import { AdapterBlueprint } from '@reown/appkit/adapters'
 
 import { formatMina, formatUnits, parseUnits } from '@mina-js/utils'
 import type UniversalProvider from '@walletconnect/universal-provider'
+import type { WagminaAppKitNetwork } from '../types/network'
 
 export class WagminaAdapter extends AdapterBlueprint {
   public wagminaConfig!: Config
@@ -49,7 +46,7 @@ export class WagminaAdapter extends AdapterBlueprint {
 
   constructor(
     configParams: Partial<CreateConfigParameters> & {
-      networks: [CaipNetwork, ...CaipNetwork[]]
+      networks: [WagminaAppKitNetwork, ...WagminaAppKitNetwork[]]
       projectId: string
       excludeWalletIds?: string[]
     },
@@ -162,7 +159,7 @@ export class WagminaAdapter extends AdapterBlueprint {
     //     walletConnect(
     //       options,
     //       appKit,
-    //       this.caipNetworks as [CaipNetwork, ...CaipNetwork[]],
+    //       this.caipNetworks as [WagminaAppKitNetwork, ...WagminaAppKitNetwork[]],
     //     ),
     //   )
     // }
