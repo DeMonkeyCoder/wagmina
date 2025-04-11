@@ -18,9 +18,7 @@ import {
   watchAccount,
   watchConnections,
   watchConnectors,
-  // watchPendingTransactions,
 } from '@wagmina/core'
-import type { Chain } from '@wagmina/core/chains'
 import type { Hex } from 'vimina'
 
 import type { AppKit, AppKitOptions } from '@reown/appkit'
@@ -38,25 +36,12 @@ import { AdapterBlueprint } from '@reown/appkit/adapters'
 
 import { formatMina, formatUnits, parseUnits } from '@mina-js/utils'
 import type UniversalProvider from '@walletconnect/universal-provider'
-import { parseWalletCapabilities } from './utils/helpers.js'
-
-interface PendingTransactionsFilter {
-  enable: boolean
-  pollingInterval?: number
-}
-// --- Constants ---------------------------------------------------- //
-// const DEFAULT_PENDING_TRANSACTIONS_FILTER = {
-//   enable: false,
-//   pollingInterval: 30_000,
-// }
 
 export class WagminaAdapter extends AdapterBlueprint {
-  public wagminaChains: readonly [Chain, ...Chain[]] | undefined
   public wagminaConfig!: Config
   public adapterType = 'wagmina'
+  public excludeWalletIds: string[] | undefined
 
-  // private pendingTransactionsFilter: PendingTransactionsFilter
-  // private unwatchPendingTransactions: (() => void) | undefined
   private balancePromises: Record<
     string,
     Promise<AdapterBlueprint.GetBalanceResult>
@@ -65,19 +50,15 @@ export class WagminaAdapter extends AdapterBlueprint {
   constructor(
     configParams: Partial<CreateConfigParameters> & {
       networks: [CaipNetwork, ...CaipNetwork[]]
-      pendingTransactionsFilter?: PendingTransactionsFilter
       projectId: string
+      excludeWalletIds?: string[]
     },
   ) {
     super({
       projectId: configParams.projectId,
       networks: configParams.networks,
     })
-
-    // this.pendingTransactionsFilter = {
-    //   ...DEFAULT_PENDING_TRANSACTIONS_FILTER,
-    //   ...(configParams.pendingTransactionsFilter ?? {}),
-    // }
+    this.excludeWalletIds = configParams.excludeWalletIds
 
     this.namespace = 'mina' as any
 
@@ -126,39 +107,6 @@ export class WagminaAdapter extends AdapterBlueprint {
     return this.wagminaConfig.connectors.find((c) => c.id === id)
   }
 
-  // private setupWatchPendingTransactions() {
-  // if (
-  //   !this.pendingTransactionsFilter.enable ||
-  //   this.unwatchPendingTransactions
-  // ) {
-  //   return
-  // }
-  //
-  // this.unwatchPendingTransactions = watchPendingTransactions(
-  //   this.wagminaConfig,
-  //   {
-  //     pollingInterval: this.pendingTransactionsFilter.pollingInterval,
-  //     /* Magic RPC does not support the pending transactions. We handle transaction for the AuthConnector cases in AppKit client to handle all clients at once. Adding the onError handler to avoid the error to throw. */
-  //     onError: () => {},
-  //     onTransactions: () => {
-  //       this.emit('pendingTransactions')
-  //       LimitterUtil.increase('pendingTransactions')
-  //     },
-  //   },
-  // )
-  //
-  // const unsubscribe = LimitterUtil.subscribeKey(
-  //   'pendingTransactions',
-  //   (val) => {
-  //     if (val >= CommonConstantsUtil.LIMITS.PENDING_TRANSACTIONS) {
-  //       this.unwatchPendingTransactions?.()
-  //       unsubscribe()
-  //     }
-  //   },
-  // )
-  //   throw new Error('Not implemented')
-  // }
-
   private setupWatchers() {
     watchAccount(this.wagminaConfig, {
       onChange: (accountData, prevAccountData) => {
@@ -171,7 +119,6 @@ export class WagminaAdapter extends AdapterBlueprint {
             accountData.address !== prevAccountData?.address ||
             prevAccountData.status !== 'connected'
           ) {
-            // this.setupWatchPendingTransactions()
             this.emit('accountChanged', {
               address: accountData.address,
             })
@@ -235,7 +182,7 @@ export class WagminaAdapter extends AdapterBlueprint {
     // if (emailEnabled || socialsEnabled) {
     //   customConnectors.push(
     //     authConnector({
-    //       chains: this.wagminaChains,
+    //       chains: this.wagminaConfig.chains,
     //       options: {
     //         projectId: options.projectId,
     //         enableAuthLogger: options.enableAuthLogger,
@@ -327,6 +274,10 @@ export class WagminaAdapter extends AdapterBlueprint {
       connector.id === CommonConstantsUtil.CONNECTOR_ID.AUTH ||
       connector.id === CommonConstantsUtil.CONNECTOR_ID.WALLET_CONNECT
     ) {
+      return
+    }
+
+    if (this.excludeWalletIds?.includes(connector.id)) {
       return
     }
 
@@ -566,50 +517,8 @@ export class WagminaAdapter extends AdapterBlueprint {
     })
   }
 
-  public async getCapabilities(params: string) {
-    if (!this.wagminaConfig) {
-      throw new Error(
-        'connectionControllerClient:getCapabilities - wagminaConfig is undefined',
-      )
-    }
-
-    const connections = getConnections(this.wagminaConfig)
-    const connection = connections[0]
-
-    const connector = connection
-      ? this.getWagminaConnector(connection.connector.id)
-      : null
-
-    if (!connector) {
-      throw new Error(
-        'connectionControllerClient:getCapabilities - connector is undefined',
-      )
-    }
-
-    const provider = (await connector.getProvider()) as UniversalProvider
-
-    if (!provider) {
-      throw new Error(
-        'connectionControllerClient:getCapabilities - provider is undefined',
-      )
-    }
-
-    const walletCapabilitiesString =
-      provider.session?.sessionProperties?.capabilities
-    if (walletCapabilitiesString) {
-      const walletCapabilities = parseWalletCapabilities(
-        walletCapabilitiesString,
-      )
-      const accountCapabilities = walletCapabilities[params]
-      if (accountCapabilities) {
-        return accountCapabilities
-      }
-    }
-
-    return await provider.request({
-      method: 'wallet_getCapabilities',
-      params: [params],
-    })
+  public async getCapabilities(_params: string) {
+    throw new Error('not implemented')
   }
 
   public async grantPermissions(
