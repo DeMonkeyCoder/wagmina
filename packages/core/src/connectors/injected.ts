@@ -192,9 +192,12 @@ export function injected(parameters: InjectedParameters = {}) {
           currentNetworkId = chain?.id ?? currentNetworkId
         }
 
+        // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+        console.log('connect called')
+
         // Remove disconnected shim if it exists
-        if (shimDisconnect)
-          await config.storage?.removeItem(`${this.id}.disconnected`)
+        // if (shimDisconnect)
+        //   await config.storage?.removeItem(`${this.id}.disconnected`)
 
         // Add connected shim if no target exists
         if (!parameters.target)
@@ -446,15 +449,19 @@ export function injected(parameters: InjectedParameters = {}) {
       }
     },
     async onAccountsChanged(accounts) {
+      // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+      console.log('onAccountsChanged')
       // Disconnect if there are no accounts
       if (accounts.length === 0) this.onDisconnect()
       // Connect if emitter is listening for connect event (e.g. is disconnected and connects through wallet interface)
       else if (config.emitter.listenerCount('connect')) {
+        // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+        console.log('hiiiiii')
         const networkId = (await this.getNetworkId()).toString()
         this.onConnect({ networkId })
         // Remove disconnected shim if it exists
-        if (shimDisconnect)
-          await config.storage?.removeItem(`${this.id}.disconnected`)
+        // if (shimDisconnect)
+        //   await config.storage?.removeItem(`${this.id}.disconnected`)
       }
       // Regular change event
       else
